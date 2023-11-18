@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const NavMenu = () => {
   return (
-    <nav className='hidden text-portfolio-500 md:block'>
+    <nav className='hidden text-white opacity-50 md:block'>
       <ul className='flex gap-5'>
         <li>
           <Link href='/'>Sobre</Link>

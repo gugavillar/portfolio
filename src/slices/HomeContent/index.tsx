@@ -23,9 +23,12 @@ const HomeContent = ({ slice }: HomeContentProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <PrismicNextImage className='rounded-full' field={slice.primary.image} />
+      <PrismicNextImage
+        className='max-w-80 h-80 max-h-80 w-80 rounded-full border-8 border-portfolio-gray-500 object-contain '
+        field={slice.primary.image}
+      />
       <div className='flex flex-col gap-9'>
-        <h4 className='text-2xl text-portfolio-500'>{slice.primary.role}</h4>
+        <h4 className='text-2xl text-white opacity-50'>{slice.primary.role}</h4>
         <h2 className='text-5xl font-bold text-white'>{slice.primary.name}</h2>
         <div className='space-y-5'>
           <PrismicRichText
