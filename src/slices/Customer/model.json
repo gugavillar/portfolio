@@ -1,8 +1,8 @@
 {
-  "id": "skill_description",
+  "id": "customer",
   "type": "SharedSlice",
-  "name": "SkillDescription",
-  "description": "SkillDescription",
+  "name": "Customer",
+  "description": "Customer",
   "variations": [
     {
       "id": "default",
@@ -13,31 +13,22 @@
       "imageUrl": "",
       "primary": {},
       "items": {
-        "skill_name": {
+        "customer_name": {
           "type": "Text",
           "config": {
-            "label": "skill_name",
+            "label": "customer_name",
             "placeholder": ""
           }
         },
-        "skill_icon": {
+        "customer_logo": {
           "type": "Image",
           "config": {
-            "label": "skill_icon",
+            "label": "customer_logo",
             "constraint": {
               "width": 64,
               "height": 64
             },
             "thumbnails": []
-          }
-        },
-        "skill_description": {
-          "type": "StructuredText",
-          "config": {
-            "label": "skill_description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
           }
         }
       }

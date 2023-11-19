@@ -10,8 +10,10 @@ export const NavMenu = () => {
         <li>
           <Link href='/habilidades'>Habilidades</Link>
         </li>
-        {/* <li>Portfólio</li>
-        <li>Contato</li>
+        <li>
+          <Link href='/portfolio'>Portfólio</Link>
+        </li>
+        {/* <li>Contato</li>
         <li>Blog</li> */}
       </ul>
     </nav>

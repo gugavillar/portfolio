@@ -8,15 +8,15 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
-						"skill_name",
+						"customer_name",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "spread",
+							"value": "fifteen",
 							"type": "Text"
 						}
 					],
 					[
-						"skill_icon",
+						"customer_logo",
 						{
 							"__TYPE__": "ImageContent",
 							"origin": {
@@ -37,20 +37,6 @@
 								"background": "transparent"
 							},
 							"thumbnails": {}
-						}
-					],
-					[
-						"skill_description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "In exercitation cillum nostrud. Est culpa aute laborum cillum aute voluptate ex fugiat."
-									}
-								}
-							]
 						}
 					]
 				]

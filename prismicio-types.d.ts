@@ -119,6 +119,71 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, 'home', Lang>
 
+type PortfolioDocumentDataSlicesSlice = GallerySlice | CustomerSlice
+
+/**
+ * Content for Portfolio documents
+ */
+interface PortfolioDocumentData {
+  /**
+   * title field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *Portfolio*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PortfolioDocumentDataSlicesSlice> /**
+   * Meta Description field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: portfolio.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Title field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: portfolio.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Portfolio document from Prismic
+ *
+ * - **API ID**: `portfolio`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PortfolioDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<PortfolioDocumentData>,
+    'portfolio',
+    Lang
+  >
+
 type SkillDocumentDataSlicesSlice = SkillDescriptionSlice
 
 /**
@@ -160,7 +225,118 @@ interface SkillDocumentData {
 export type SkillDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<SkillDocumentData>, 'skill', Lang>
 
-export type AllDocumentTypes = AbilitiesDocument | HomeDocument | SkillDocument
+export type AllDocumentTypes =
+  | AbilitiesDocument
+  | HomeDocument
+  | PortfolioDocument
+  | SkillDocument
+
+/**
+ * Primary content in *Customer → Items*
+ */
+export interface CustomerSliceDefaultItem {
+  /**
+   * customer_name field in *Customer → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer.items[].customer_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  customer_name: prismic.KeyTextField
+
+  /**
+   * customer_logo field in *Customer → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer.items[].customer_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  customer_logo: prismic.ImageField<never>
+}
+
+/**
+ * Default variation for Customer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CustomerSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  Simplify<CustomerSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Customer*
+ */
+type CustomerSliceVariation = CustomerSliceDefault
+
+/**
+ * Customer Shared Slice
+ *
+ * - **API ID**: `customer`
+ * - **Description**: Customer
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CustomerSlice = prismic.SharedSlice<
+  'customer',
+  CustomerSliceVariation
+>
+
+/**
+ * Primary content in *Gallery → Items*
+ */
+export interface GallerySliceDefaultItem {
+  /**
+   * project_image field in *Gallery → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].project_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  project_image: prismic.ImageField<never>
+
+  /**
+   * project_name field in *Gallery → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].project_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_name: prismic.KeyTextField
+}
+
+/**
+ * Default variation for Gallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  Simplify<GallerySliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Gallery*
+ */
+type GallerySliceVariation = GallerySliceDefault
+
+/**
+ * Gallery Shared Slice
+ *
+ * - **API ID**: `gallery`
+ * - **Description**: Gallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySlice = prismic.SharedSlice<'gallery', GallerySliceVariation>
 
 /**
  * Primary content in *HomeContent → Primary*
@@ -318,10 +494,21 @@ declare module '@prismicio/client' {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      PortfolioDocument,
+      PortfolioDocumentData,
+      PortfolioDocumentDataSlicesSlice,
       SkillDocument,
       SkillDocumentData,
       SkillDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CustomerSlice,
+      CustomerSliceDefaultItem,
+      CustomerSliceVariation,
+      CustomerSliceDefault,
+      GallerySlice,
+      GallerySliceDefaultItem,
+      GallerySliceVariation,
+      GallerySliceDefault,
       HomeContentSlice,
       HomeContentSliceDefaultPrimary,
       HomeContentSliceVariation,

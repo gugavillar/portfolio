@@ -24,6 +24,10 @@ const routes: prismic.ClientConfig['routes'] = [
     type: 'abilities',
     path: '/habilidades',
   },
+  {
+    type: 'portfolio',
+    path: '/portfolio',
+  },
 ]
 
 /**
