@@ -1,0 +1,35 @@
+{
+  "id": "skill",
+  "label": "Skill",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "title",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "skill_description": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

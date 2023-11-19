@@ -4,6 +4,71 @@ import type * as prismic from '@prismicio/client'
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
+type AbilitiesDocumentDataSlicesSlice = never
+
+/**
+ * Content for Abilities documents
+ */
+interface AbilitiesDocumentData {
+  /**
+   * title field in *Abilities*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abilities.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *Abilities*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abilities.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AbilitiesDocumentDataSlicesSlice> /**
+   * Meta Description field in *Abilities*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: abilities.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Title field in *Abilities*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: abilities.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Abilities document from Prismic
+ *
+ * - **API ID**: `abilities`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AbilitiesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AbilitiesDocumentData>,
+    'abilities',
+    Lang
+  >
+
 type HomeDocumentDataSlicesSlice = HomeContentSlice
 
 /**
@@ -54,83 +119,48 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, 'home', Lang>
 
-type SkillsDocumentDataSlicesSlice = SkillsDescriptionsSlice
+type SkillDocumentDataSlicesSlice = SkillDescriptionSlice
 
 /**
- * Content for Skills documents
+ * Content for Skill documents
  */
-interface SkillsDocumentData {
+interface SkillDocumentData {
   /**
-   * title field in *Skills*
+   * title field in *Skill*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: skills.title
+   * - **API ID Path**: skill.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField
 
   /**
-   * Slice Zone field in *Skills*
+   * Slice Zone field in *Skill*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: skills.slices[]
+   * - **API ID Path**: skill.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<SkillsDocumentDataSlicesSlice> /**
-   * Meta Description field in *Skills*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: skills.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField
-
-  /**
-   * Meta Image field in *Skills*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: skills.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>
-
-  /**
-   * Meta Title field in *Skills*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: skills.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField
+  slices: prismic.SliceZone<SkillDocumentDataSlicesSlice>
 }
 
 /**
- * Skills document from Prismic
+ * Skill document from Prismic
  *
- * - **API ID**: `skills`
- * - **Repeatable**: `false`
+ * - **API ID**: `skill`
+ * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type SkillsDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<SkillsDocumentData>,
-    'skills',
-    Lang
-  >
+export type SkillDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<SkillDocumentData>, 'skill', Lang>
 
-export type AllDocumentTypes = HomeDocument | SkillsDocument
+export type AllDocumentTypes = AbilitiesDocument | HomeDocument | SkillDocument
 
 /**
  * Primary content in *HomeContent → Primary*
@@ -208,93 +238,68 @@ export type HomeContentSlice = prismic.SharedSlice<
 >
 
 /**
- * Primary content in *SkillsDescriptions → Primary*
+ * Primary content in *SkillDescription → Items*
  */
-export interface SkillsDescriptionsSliceDefaultPrimary {
+export interface SkillDescriptionSliceDefaultItem {
   /**
-   * title field in *SkillsDescriptions → Primary*
+   * skill_name field in *SkillDescription → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: skills_descriptions.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField
-
-  /**
-   * doing field in *SkillsDescriptions → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: skills_descriptions.primary.doing
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  doing: prismic.KeyTextField
-}
-
-/**
- * Primary content in *SkillsDescriptions → Items*
- */
-export interface SkillsDescriptionsSliceDefaultItem {
-  /**
-   * skill_name field in *SkillsDescriptions → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: skills_descriptions.items[].skill_name
+   * - **API ID Path**: skill_description.items[].skill_name
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   skill_name: prismic.KeyTextField
 
   /**
-   * skill_icon field in *SkillsDescriptions → Items*
+   * skill_icon field in *SkillDescription → Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: skills_descriptions.items[].skill_icon
+   * - **API ID Path**: skill_description.items[].skill_icon
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   skill_icon: prismic.ImageField<never>
 
   /**
-   * skill_description field in *SkillsDescriptions → Items*
+   * skill_description field in *SkillDescription → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: skills_descriptions.items[].skill_description
+   * - **API ID Path**: skill_description.items[].skill_description
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   skill_description: prismic.RichTextField
 }
 
 /**
- * Default variation for SkillsDescriptions Slice
+ * Default variation for SkillDescription Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type SkillsDescriptionsSliceDefault = prismic.SharedSliceVariation<
+export type SkillDescriptionSliceDefault = prismic.SharedSliceVariation<
   'default',
-  Simplify<SkillsDescriptionsSliceDefaultPrimary>,
-  Simplify<SkillsDescriptionsSliceDefaultItem>
+  Record<string, never>,
+  Simplify<SkillDescriptionSliceDefaultItem>
 >
 
 /**
- * Slice variation for *SkillsDescriptions*
+ * Slice variation for *SkillDescription*
  */
-type SkillsDescriptionsSliceVariation = SkillsDescriptionsSliceDefault
+type SkillDescriptionSliceVariation = SkillDescriptionSliceDefault
 
 /**
- * SkillsDescriptions Shared Slice
+ * SkillDescription Shared Slice
  *
- * - **API ID**: `skills_descriptions`
- * - **Description**: SkillsDescriptions
+ * - **API ID**: `skill_description`
+ * - **Description**: SkillDescription
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type SkillsDescriptionsSlice = prismic.SharedSlice<
-  'skills_descriptions',
-  SkillsDescriptionsSliceVariation
+export type SkillDescriptionSlice = prismic.SharedSlice<
+  'skill_description',
+  SkillDescriptionSliceVariation
 >
 
 declare module '@prismicio/client' {
@@ -307,22 +312,24 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
+      AbilitiesDocument,
+      AbilitiesDocumentData,
+      AbilitiesDocumentDataSlicesSlice,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
-      SkillsDocument,
-      SkillsDocumentData,
-      SkillsDocumentDataSlicesSlice,
+      SkillDocument,
+      SkillDocumentData,
+      SkillDocumentDataSlicesSlice,
       AllDocumentTypes,
       HomeContentSlice,
       HomeContentSliceDefaultPrimary,
       HomeContentSliceVariation,
       HomeContentSliceDefault,
-      SkillsDescriptionsSlice,
-      SkillsDescriptionsSliceDefaultPrimary,
-      SkillsDescriptionsSliceDefaultItem,
-      SkillsDescriptionsSliceVariation,
-      SkillsDescriptionsSliceDefault,
+      SkillDescriptionSlice,
+      SkillDescriptionSliceDefaultItem,
+      SkillDescriptionSliceVariation,
+      SkillDescriptionSliceDefault,
     }
   }
 }
