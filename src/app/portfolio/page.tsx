@@ -12,7 +12,7 @@ export default async function PortfolioPage() {
   const page = await client.getSingle('portfolio')
 
   return (
-    <section className='flex w-full flex-col gap-6'>
+    <section className='flex w-full flex-col gap-20'>
       <PageTitle>{page.data.title}</PageTitle>
       <SliceZone slices={page.data.slices} components={components} />
     </section>
