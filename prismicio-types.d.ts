@@ -69,6 +69,120 @@ export type AbilitiesDocument<Lang extends string = string> =
     Lang
   >
 
+/**
+ * Item in *FooterLinks → links*
+ */
+export interface FooterlinksDocumentDataLinksItem {
+  /**
+   * label field in *FooterLinks → links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footerlinks.links[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField
+
+  /**
+   * url field in *FooterLinks → links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footerlinks.links[].url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url: prismic.LinkField
+}
+
+/**
+ * Content for FooterLinks documents
+ */
+interface FooterlinksDocumentData {
+  /**
+   * links field in *FooterLinks*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footerlinks.links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links: prismic.GroupField<Simplify<FooterlinksDocumentDataLinksItem>>
+}
+
+/**
+ * FooterLinks document from Prismic
+ *
+ * - **API ID**: `footerlinks`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterlinksDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterlinksDocumentData>,
+    'footerlinks',
+    Lang
+  >
+
+/**
+ * Item in *HeaderLink → links*
+ */
+export interface HeaderlinkDocumentDataLinksItem {
+  /**
+   * label field in *HeaderLink → links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: headerlink.links[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField
+
+  /**
+   * url field in *HeaderLink → links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: headerlink.links[].url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url: prismic.LinkField
+}
+
+/**
+ * Content for HeaderLink documents
+ */
+interface HeaderlinkDocumentData {
+  /**
+   * links field in *HeaderLink*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: headerlink.links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links: prismic.GroupField<Simplify<HeaderlinkDocumentDataLinksItem>>
+}
+
+/**
+ * HeaderLink document from Prismic
+ *
+ * - **API ID**: `headerlink`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HeaderlinkDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HeaderlinkDocumentData>,
+    'headerlink',
+    Lang
+  >
+
 type HomeDocumentDataSlicesSlice = HomeContentSlice
 
 /**
@@ -227,6 +341,8 @@ export type SkillDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AbilitiesDocument
+  | FooterlinksDocument
+  | HeaderlinkDocument
   | HomeDocument
   | PortfolioDocument
   | SkillDocument
@@ -491,6 +607,12 @@ declare module '@prismicio/client' {
       AbilitiesDocument,
       AbilitiesDocumentData,
       AbilitiesDocumentDataSlicesSlice,
+      FooterlinksDocument,
+      FooterlinksDocumentData,
+      FooterlinksDocumentDataLinksItem,
+      HeaderlinkDocument,
+      HeaderlinkDocumentData,
+      HeaderlinkDocumentDataLinksItem,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
