@@ -10,7 +10,6 @@
 					[
 						"project_image",
 						{
-							"__TYPE__": "ImageContent",
 							"origin": {
 								"id": "main",
 								"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
@@ -28,6 +27,9 @@
 								},
 								"background": "transparent"
 							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
 							"thumbnails": {}
 						}
 					],
@@ -37,6 +39,40 @@
 							"__TYPE__": "FieldContent",
 							"value": "egg",
 							"type": "Text"
+						}
+					],
+					[
+						"technology",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Non cupidatat ullamco ex reprehenderit nulla occaecat adipisicing ad ea. Pariatur excepteur tempor incididunt quis in irure eu exercitation ut est pariatur irure."
+									}
+								}
+							]
+						}
+					],
+					[
+						"gitrepo",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://twitter.com"
+							}
+						}
+					],
+					[
+						"app",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io"
+							}
 						}
 					]
 				]

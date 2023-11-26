@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import { createClient } from '@/prismicio'
 import { PrismicNextLink } from '@prismicio/next'
 
@@ -14,14 +12,6 @@ export const NavMenu = async () => {
             <PrismicNextLink field={item.url}>{item.label}</PrismicNextLink>
           </li>
         ))}
-        {/*  <li>
-          <Link href='/habilidades'>Habilidades</Link>
-        </li>
-        <li>
-          <Link href='/portfolio'>Portfólio</Link>
-        </li> */}
-        {/* <li>Contato</li>
-        <li>Blog</li> */}
       </menu>
     </nav>
   )

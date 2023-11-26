@@ -16,11 +16,11 @@ const Customer = ({ slice }: CustomerProps): JSX.Element => {
       <Subtitle subtitle='Clientes' />
       <ul className='flex w-full gap-8 pl-4 md:pl-16'>
         {slice.items.map((item, index) => (
-          <li key={index} className='py-6'>
-            <p className='text-xl text-white opacity-50'>
+          <li key={index} className='w-32 space-y-4 py-6'>
+            <PrismicNextImage field={item.customer_logo} />
+            <p className='text-center text-white opacity-50'>
               {item.customer_name}
             </p>
-            {/* <PrismicNextImage field={item.customer_logo} /> */}
           </li>
         ))}
       </ul>

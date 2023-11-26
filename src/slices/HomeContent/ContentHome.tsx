@@ -14,16 +14,12 @@ const paragraph: JSXMapSerializer = {
 }
 
 type ContentProps = PropsWithChildren & {
-  role: SliceComponentProps<Content.HomeContentSlice>['slice']['primary']['role']
-  name: SliceComponentProps<Content.HomeContentSlice>['slice']['primary']['name']
-  description: SliceComponentProps<Content.HomeContentSlice>['slice']['primary']['description']
+  content: SliceComponentProps<Content.HomeContentSlice>['slice']['primary']
 }
 
 export const ContentHome = ({
   children,
-  role,
-  name,
-  description,
+  content: { role, name, description },
 }: ContentProps) => {
   return (
     <div className='flex flex-col gap-9'>

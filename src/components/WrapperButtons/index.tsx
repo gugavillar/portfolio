@@ -10,7 +10,7 @@ export const WrapperButton = () => {
   const handleNavigationPortfolio = () => router.push('/portfolio')
 
   return (
-    <div className='flex gap-5'>
+    <div className='flex items-center justify-center gap-5 md:justify-start'>
       <Button onClick={handleNavigationPortfolio}>Portfólio</Button>
       <Button>Contato</Button>
     </div>

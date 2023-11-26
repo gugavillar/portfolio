@@ -27,6 +27,31 @@
             "label": "project_name",
             "placeholder": ""
           }
+        },
+        "technology": {
+          "type": "StructuredText",
+          "config": {
+            "label": "technology",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "gitrepo": {
+          "type": "Link",
+          "config": {
+            "label": "gitrepo",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "app": {
+          "type": "Link",
+          "config": {
+            "label": "app",
+            "placeholder": "",
+            "select": null
+          }
         }
       }
     }

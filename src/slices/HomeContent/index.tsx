@@ -19,11 +19,7 @@ const HomeContent = ({ slice }: HomeContentProps): JSX.Element => {
         className='max-w-80 h-80 max-h-80 w-80 rounded-full border-8 border-portfolio-gray-500 object-contain '
         field={slice.primary.image}
       />
-      <ContentHome
-        description={slice.primary.description}
-        name={slice.primary.name}
-        role={slice.primary.role}
-      >
+      <ContentHome content={slice.primary}>
         <WrapperButton />
       </ContentHome>
     </section>

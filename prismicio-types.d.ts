@@ -425,6 +425,36 @@ export interface GallerySliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   project_name: prismic.KeyTextField
+
+  /**
+   * technology field in *Gallery → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].technology
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  technology: prismic.RichTextField
+
+  /**
+   * gitrepo field in *Gallery → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].gitrepo
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  gitrepo: prismic.LinkField
+
+  /**
+   * app field in *Gallery → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].app
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  app: prismic.LinkField
 }
 
 /**
