@@ -29,9 +29,7 @@ const Gallery = ({ slice }: GalleryProps): JSX.Element => {
       <div className=' grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
         {slice.items.map((item, index) => {
           const hasRepoAndApp =
-            item.gitrepo?.link_type === 'Web' && item.app?.link_type === 'Wep'
-              ? 'visible'
-              : undefined
+            item.gitrepo?.link_type === 'Web' && item.app.link_type === 'Web'
 
           return (
             <div className='flex w-full flex-col space-y-4' key={index}>
@@ -44,29 +42,21 @@ const Gallery = ({ slice }: GalleryProps): JSX.Element => {
                   field={item.project_image}
                 />
               </figure>
+              {hasRepoAndApp ? (
+                <div className='visible flex w-full items-center gap-5'>
+                  <PrismicNextLink className='text-white' field={item.gitrepo}>
+                    Repositório
+                  </PrismicNextLink>
+                  <PrismicNextLink className='text-white' field={item.app}>
+                    Aplicação
+                  </PrismicNextLink>
+                </div>
+              ) : null}
               <div className='mt-3 flex flex-wrap gap-2'>
                 <PrismicRichText
                   field={item.technology}
                   components={technologyTags}
                 />
-              </div>
-              <div
-                className={`invisible flex w-full items-center gap-5 ${hasRepoAndApp}`}
-              >
-                <PrismicNextLink
-                  className='text-white'
-                  target='_blank'
-                  field={item.gitrepo}
-                >
-                  Repositório
-                </PrismicNextLink>
-                <PrismicNextLink
-                  className='text-white'
-                  target='_blank'
-                  field={item.app}
-                >
-                  Aplicação
-                </PrismicNextLink>
               </div>
             </div>
           )
