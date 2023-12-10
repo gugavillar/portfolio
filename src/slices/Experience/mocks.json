@@ -1,0 +1,66 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"company",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "sweet",
+							"type": "Text"
+						}
+					],
+					[
+						"role",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading4",
+									"content": {
+										"text": "Constantly"
+									}
+								}
+							]
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Non adipisicing pariatur incididunt sint quis veniam. Laborum esse nulla adipisicing velit eiusmod enim amet culpa nulla aliqua et consequat ea consequat aliqua."
+									}
+								}
+							]
+						}
+					],
+					[
+						"initial",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Date",
+							"value": "2014-04-04"
+						}
+					],
+					[
+						"final",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Date",
+							"value": "2016-12-18"
+						}
+					]
+				]
+			}
+		]
+	}
+]
