@@ -1,8 +1,8 @@
 {
-  "id": "experience",
+  "id": "projects",
   "type": "SharedSlice",
-  "name": "Experience",
-  "description": "Experience",
+  "name": "Projects",
+  "description": "Projects",
   "variations": [
     {
       "id": "default",
@@ -13,17 +13,18 @@
       "imageUrl": "",
       "primary": {},
       "items": {
-        "company": {
-          "type": "Text",
+        "screenshot": {
+          "type": "Image",
           "config": {
-            "label": "company",
-            "placeholder": ""
+            "label": "screenshot",
+            "constraint": {},
+            "thumbnails": []
           }
         },
-        "role": {
+        "name": {
           "type": "StructuredText",
           "config": {
-            "label": "role",
+            "label": "name",
             "placeholder": "",
             "allowTargetBlank": true,
             "single": "heading3"
@@ -38,18 +39,22 @@
             "multi": "paragraph"
           }
         },
-        "initial": {
-          "type": "Date",
+        "technologies": {
+          "type": "StructuredText",
           "config": {
-            "label": "initial",
-            "placeholder": ""
+            "label": "technologies",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
           }
         },
-        "final": {
-          "type": "Date",
+        "link": {
+          "type": "Link",
           "config": {
-            "label": "final",
-            "placeholder": ""
+            "label": "link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
           }
         }
       }

@@ -1,35 +1,21 @@
 import type { Content } from '@prismicio/client'
 import { PrismicNextImage } from '@prismicio/next'
-import {
-  type JSXMapSerializer,
-  PrismicRichText,
-  type SliceComponentProps,
-} from '@prismicio/react'
+import { type SliceComponentProps } from '@prismicio/react'
 
-import { Download, Mail } from '@/components/Icon'
+import { Container, Title } from '@/components'
+
+import { ActionButtons } from './ActionButtons'
+import { PersonalDescription } from './PersonalDescription'
 
 export type AboutProps = SliceComponentProps<Content.AboutSlice>
 
-const location: JSXMapSerializer = {
-  heading3: ({ children }) => (
-    <h3 className='font-medium text-white md:text-xl'>{children}</h3>
-  ),
-}
-
-const about: JSXMapSerializer = {
-  paragraph: ({ children }) => (
-    <p className='text-justify text-sm font-light text-dark-400 md:text-lg'>
-      {children}
-    </p>
-  ),
-}
-
 const About = ({ slice }: AboutProps): JSX.Element => {
   return (
-    <section
-      className='mt-14 flex min-h-[362px] w-full flex-col bg-dark-700 px-6 py-10 md:px-11 lg:px-[180px] lg:py-[100px]'
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
+    <Container
+      className='mt-14 min-h-[362px] bg-dark-700 py-10 lg:py-[100px]'
+      sliceType={slice.slice_type}
+      variation={slice.variation}
+      id='about'
     >
       <div className='flex gap-32'>
         <PrismicNextImage
@@ -37,40 +23,15 @@ const About = ({ slice }: AboutProps): JSX.Element => {
           field={slice.primary.image}
         />
         <div>
-          <h2 className='mb-4 text-2xl font-semibold text-white md:mb-10'>
-            SOBRE MIM
-          </h2>
-          <div className='space-y-2 md:space-y-5'>
-            <PrismicRichText
-              components={location}
-              field={slice.primary.location}
-            />
-            <PrismicRichText
-              components={about}
-              field={slice.primary.about_me}
-            />
-          </div>
-          <div className='mt-8 flex gap-6'>
-            <a
-              target='_blank'
-              href='/assets/gustavo_villar_cv.pdf'
-              className='btn-pink'
-            >
-              <Download />
-              Currículo
-            </a>
-            <a
-              target='_blank'
-              href='mailto:grsv.21@gmail.com'
-              className='btn-purple'
-            >
-              <Mail />
-              E-mail
-            </a>
-          </div>
+          <Title>SOBRE MIM</Title>
+          <PersonalDescription
+            location={slice.primary.location}
+            aboutMe={slice.primary.about_me}
+          />
+          <ActionButtons />
         </div>
       </div>
-    </section>
+    </Container>
   )
 }
 

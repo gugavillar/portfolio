@@ -1,12 +1,16 @@
+import { ReactNode } from 'react'
+
 import type { Content } from '@prismicio/client'
-import { PrismicNextLink } from '@prismicio/next'
 import {
   type JSXMapSerializer,
   PrismicRichText,
   type SliceComponentProps,
 } from '@prismicio/react'
 
-import { GitHub, LinkedIn, Loop } from '@/components/Icon'
+import { Container } from '@/components/Container'
+import { Loop } from '@/components/Icon'
+
+import { SocialButtons } from './SocialButtons'
 
 export type InfoHeaderProps = SliceComponentProps<Content.InfoHeaderSlice>
 
@@ -18,37 +22,32 @@ const H1: JSXMapSerializer = {
   ),
 }
 
+type ParagraphProps = {
+  children: ReactNode
+}
+
+const Paragraph = ({ children }: ParagraphProps) => (
+  <p className='font-semibold text-white md:text-2xl'>{children}</p>
+)
+
 const InfoHeader = ({ slice }: InfoHeaderProps): JSX.Element => {
   return (
-    <section
-      className='flex w-full flex-col px-6 md:px-11 lg:px-[180px]'
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
+    <Container
+      sliceType={slice.slice_type}
+      variation={slice.variation}
+      id='home'
     >
       <div className='mt-14 space-y-2 md:mt-[152px] md:space-y-3'>
-        <p className='font-semibold text-white md:text-2xl'>OLÁ, EU SOU</p>
+        <Paragraph>OLÁ, EU SOU</Paragraph>
         <PrismicRichText components={H1} field={slice.primary.name} />
-        <p className='font-semibold text-white md:text-2xl'>
-          {slice.primary.role}
-        </p>
+        <Paragraph>{slice.primary.role}</Paragraph>
       </div>
       <Loop className='invisible absolute right-0 top-3 lg:visible' />
-      <div className='mt-10 flex gap-6 md:mt-[60px]'>
-        <PrismicNextLink
-          className='btn-purple'
-          field={slice.primary.linkedin_profile}
-        >
-          <LinkedIn /> LinkedIn
-        </PrismicNextLink>
-        <PrismicNextLink
-          className='btn-pink'
-          field={slice.primary.github_profile}
-        >
-          <GitHub />
-          GitHub
-        </PrismicNextLink>
-      </div>
-    </section>
+      <SocialButtons
+        github={slice.primary.github_profile}
+        linkedIn={slice.primary.linkedin_profile}
+      />
+    </Container>
   )
 }
 

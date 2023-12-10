@@ -7,9 +7,9 @@ import {
 
 import { ExperienceTime } from './ExperienceTime'
 
-const H4: JSXMapSerializer = {
-  heading4: ({ children }) => (
-    <h4 className='font-medium text-white md:text-2xl'>{children}</h4>
+const H3: JSXMapSerializer = {
+  heading3: ({ children }) => (
+    <h3 className='font-medium text-white md:text-2xl'>{children}</h3>
   ),
 }
 
@@ -27,7 +27,7 @@ export const ExperienceContent = ({ item }: ExperienceContentProps) => {
   return (
     <div className='flex flex-1 flex-col space-y-4 md:space-y-[26px]'>
       <div className='flex items-center justify-between'>
-        <PrismicRichText components={H4} field={item.role} />
+        <PrismicRichText components={H3} field={item.role} />
         <ExperienceTime
           initial={item.initial}
           final={item.final}
