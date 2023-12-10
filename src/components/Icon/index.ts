@@ -1,1 +1,5 @@
-export * from './Programmer'
+export * from './LinkedIn'
+export * from './GitHub'
+export * from './Loop'
+export * from './Download'
+export * from './Mail'

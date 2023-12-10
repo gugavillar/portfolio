@@ -10,24 +10,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        portfolio: {
-          gray: {
-            '100': '#D5D5D5',
-            '200': '#D9D9D9',
-            '400': '#555555',
-            '500': '#444444',
-            '600': '#353535',
-            '700': '#333333',
-            '800': '#252525',
-            '900': '#222222',
-          },
-          blue: {
-            '500': '#007CED',
-          },
+        brand: '#00D2DF',
+        dark: {
+          '400': '#C4C4C4',
+          '700': '#151515',
+          '900': '#121212',
         },
       },
       fontFamily: {
-        sans: ['var(--font-poppins)', 'sans-serif'],
+        sans: ['var(--font-inter)', 'sans-serif'],
       },
     },
   },

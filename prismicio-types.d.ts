@@ -4,71 +4,6 @@ import type * as prismic from '@prismicio/client'
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
-type AbilitiesDocumentDataSlicesSlice = never
-
-/**
- * Content for Abilities documents
- */
-interface AbilitiesDocumentData {
-  /**
-   * title field in *Abilities*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abilities.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField
-
-  /**
-   * Slice Zone field in *Abilities*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abilities.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<AbilitiesDocumentDataSlicesSlice> /**
-   * Meta Description field in *Abilities*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: abilities.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField
-
-  /**
-   * Meta Title field in *Abilities*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: abilities.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField
-}
-
-/**
- * Abilities document from Prismic
- *
- * - **API ID**: `abilities`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type AbilitiesDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<AbilitiesDocumentData>,
-    'abilities',
-    Lang
-  >
-
 /**
  * Item in *FooterLinks → links*
  */
@@ -183,7 +118,7 @@ export type HeaderlinkDocument<Lang extends string = string> =
     Lang
   >
 
-type HomeDocumentDataSlicesSlice = HomeContentSlice
+type HomeDocumentDataSlicesSlice = AboutSlice | InfoHeaderSlice
 
 /**
  * Content for Home documents
@@ -233,395 +168,146 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, 'home', Lang>
 
-type PortfolioDocumentDataSlicesSlice = GallerySlice | CustomerSlice
-
-/**
- * Content for Portfolio documents
- */
-interface PortfolioDocumentData {
-  /**
-   * title field in *Portfolio*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField
-
-  /**
-   * Slice Zone field in *Portfolio*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<PortfolioDocumentDataSlicesSlice> /**
-   * Meta Description field in *Portfolio*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: portfolio.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField
-
-  /**
-   * Meta Title field in *Portfolio*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: portfolio.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField
-}
-
-/**
- * Portfolio document from Prismic
- *
- * - **API ID**: `portfolio`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type PortfolioDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<PortfolioDocumentData>,
-    'portfolio',
-    Lang
-  >
-
-type SkillDocumentDataSlicesSlice = SkillDescriptionSlice
-
-/**
- * Content for Skill documents
- */
-interface SkillDocumentData {
-  /**
-   * title field in *Skill*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: skill.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField
-
-  /**
-   * Slice Zone field in *Skill*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: skill.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<SkillDocumentDataSlicesSlice>
-}
-
-/**
- * Skill document from Prismic
- *
- * - **API ID**: `skill`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type SkillDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<Simplify<SkillDocumentData>, 'skill', Lang>
-
 export type AllDocumentTypes =
-  | AbilitiesDocument
   | FooterlinksDocument
   | HeaderlinkDocument
   | HomeDocument
-  | PortfolioDocument
-  | SkillDocument
 
 /**
- * Primary content in *Customer → Items*
+ * Primary content in *About → Primary*
  */
-export interface CustomerSliceDefaultItem {
+export interface AboutSliceDefaultPrimary {
   /**
-   * customer_name field in *Customer → Items*
+   * location field in *About → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
-   * - **API ID Path**: customer.items[].customer_name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: about.primary.location
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  customer_name: prismic.KeyTextField
+  location: prismic.TitleField
 
   /**
-   * customer_logo field in *Customer → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer.items[].customer_logo
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  customer_logo: prismic.ImageField<never>
-}
-
-/**
- * Default variation for Customer Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CustomerSliceDefault = prismic.SharedSliceVariation<
-  'default',
-  Record<string, never>,
-  Simplify<CustomerSliceDefaultItem>
->
-
-/**
- * Slice variation for *Customer*
- */
-type CustomerSliceVariation = CustomerSliceDefault
-
-/**
- * Customer Shared Slice
- *
- * - **API ID**: `customer`
- * - **Description**: Customer
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CustomerSlice = prismic.SharedSlice<
-  'customer',
-  CustomerSliceVariation
->
-
-/**
- * Primary content in *Gallery → Items*
- */
-export interface GallerySliceDefaultItem {
-  /**
-   * project_image field in *Gallery → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: gallery.items[].project_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  project_image: prismic.ImageField<never>
-
-  /**
-   * project_name field in *Gallery → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: gallery.items[].project_name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  project_name: prismic.KeyTextField
-
-  /**
-   * technology field in *Gallery → Items*
+   * about_me field in *About → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: gallery.items[].technology
+   * - **API ID Path**: about.primary.about_me
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  technology: prismic.RichTextField
+  about_me: prismic.RichTextField
 
   /**
-   * gitrepo field in *Gallery → Items*
+   * image field in *About → Primary*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: gallery.items[].gitrepo
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **API ID Path**: about.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  gitrepo: prismic.LinkField
-
-  /**
-   * app field in *Gallery → Items*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: gallery.items[].app
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  app: prismic.LinkField
+  image: prismic.ImageField<never>
 }
 
 /**
- * Default variation for Gallery Slice
+ * Default variation for About Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type GallerySliceDefault = prismic.SharedSliceVariation<
+export type AboutSliceDefault = prismic.SharedSliceVariation<
   'default',
-  Record<string, never>,
-  Simplify<GallerySliceDefaultItem>
+  Simplify<AboutSliceDefaultPrimary>,
+  never
 >
 
 /**
- * Slice variation for *Gallery*
+ * Slice variation for *About*
  */
-type GallerySliceVariation = GallerySliceDefault
+type AboutSliceVariation = AboutSliceDefault
 
 /**
- * Gallery Shared Slice
+ * About Shared Slice
  *
- * - **API ID**: `gallery`
- * - **Description**: Gallery
+ * - **API ID**: `about`
+ * - **Description**: About
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type GallerySlice = prismic.SharedSlice<'gallery', GallerySliceVariation>
+export type AboutSlice = prismic.SharedSlice<'about', AboutSliceVariation>
 
 /**
- * Primary content in *HomeContent → Primary*
+ * Primary content in *InfoHeader → Primary*
  */
-export interface HomeContentSliceDefaultPrimary {
+export interface InfoHeaderSliceDefaultPrimary {
   /**
-   * image field in *HomeContent → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_content.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>
-
-  /**
-   * role field in *HomeContent → Primary*
+   * role field in *InfoHeader → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: home_content.primary.role
+   * - **API ID Path**: info_header.primary.role
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   role: prismic.KeyTextField
 
   /**
-   * name field in *HomeContent → Primary*
+   * name field in *InfoHeader → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
-   * - **API ID Path**: home_content.primary.name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  name: prismic.KeyTextField
-
-  /**
-   * description field in *HomeContent → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_content.primary.description
+   * - **API ID Path**: info_header.primary.name
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  description: prismic.RichTextField
+  name: prismic.TitleField
+
+  /**
+   * github_profile field in *InfoHeader → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: https://github.com/username
+   * - **API ID Path**: info_header.primary.github_profile
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  github_profile: prismic.LinkField
+
+  /**
+   * linkedin_profile field in *InfoHeader → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: https://linkedin.com/in/username
+   * - **API ID Path**: info_header.primary.linkedin_profile
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedin_profile: prismic.LinkField
 }
 
 /**
- * Default variation for HomeContent Slice
+ * Default variation for InfoHeader Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HomeContentSliceDefault = prismic.SharedSliceVariation<
+export type InfoHeaderSliceDefault = prismic.SharedSliceVariation<
   'default',
-  Simplify<HomeContentSliceDefaultPrimary>,
+  Simplify<InfoHeaderSliceDefaultPrimary>,
   never
 >
 
 /**
- * Slice variation for *HomeContent*
+ * Slice variation for *InfoHeader*
  */
-type HomeContentSliceVariation = HomeContentSliceDefault
+type InfoHeaderSliceVariation = InfoHeaderSliceDefault
 
 /**
- * HomeContent Shared Slice
+ * InfoHeader Shared Slice
  *
- * - **API ID**: `home_content`
- * - **Description**: HomeContent
+ * - **API ID**: `info_header`
+ * - **Description**: InfoHeader
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HomeContentSlice = prismic.SharedSlice<
-  'home_content',
-  HomeContentSliceVariation
->
-
-/**
- * Primary content in *SkillDescription → Items*
- */
-export interface SkillDescriptionSliceDefaultItem {
-  /**
-   * skill_name field in *SkillDescription → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: skill_description.items[].skill_name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  skill_name: prismic.KeyTextField
-
-  /**
-   * skill_icon field in *SkillDescription → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: skill_description.items[].skill_icon
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  skill_icon: prismic.ImageField<never>
-
-  /**
-   * skill_description field in *SkillDescription → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: skill_description.items[].skill_description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  skill_description: prismic.RichTextField
-}
-
-/**
- * Default variation for SkillDescription Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type SkillDescriptionSliceDefault = prismic.SharedSliceVariation<
-  'default',
-  Record<string, never>,
-  Simplify<SkillDescriptionSliceDefaultItem>
->
-
-/**
- * Slice variation for *SkillDescription*
- */
-type SkillDescriptionSliceVariation = SkillDescriptionSliceDefault
-
-/**
- * SkillDescription Shared Slice
- *
- * - **API ID**: `skill_description`
- * - **Description**: SkillDescription
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type SkillDescriptionSlice = prismic.SharedSlice<
-  'skill_description',
-  SkillDescriptionSliceVariation
+export type InfoHeaderSlice = prismic.SharedSlice<
+  'info_header',
+  InfoHeaderSliceVariation
 >
 
 declare module '@prismicio/client' {
@@ -634,9 +320,6 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
-      AbilitiesDocument,
-      AbilitiesDocumentData,
-      AbilitiesDocumentDataSlicesSlice,
       FooterlinksDocument,
       FooterlinksDocumentData,
       FooterlinksDocumentDataLinksItem,
@@ -646,29 +329,15 @@ declare module '@prismicio/client' {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
-      PortfolioDocument,
-      PortfolioDocumentData,
-      PortfolioDocumentDataSlicesSlice,
-      SkillDocument,
-      SkillDocumentData,
-      SkillDocumentDataSlicesSlice,
       AllDocumentTypes,
-      CustomerSlice,
-      CustomerSliceDefaultItem,
-      CustomerSliceVariation,
-      CustomerSliceDefault,
-      GallerySlice,
-      GallerySliceDefaultItem,
-      GallerySliceVariation,
-      GallerySliceDefault,
-      HomeContentSlice,
-      HomeContentSliceDefaultPrimary,
-      HomeContentSliceVariation,
-      HomeContentSliceDefault,
-      SkillDescriptionSlice,
-      SkillDescriptionSliceDefaultItem,
-      SkillDescriptionSliceVariation,
-      SkillDescriptionSliceDefault,
+      AboutSlice,
+      AboutSliceDefaultPrimary,
+      AboutSliceVariation,
+      AboutSliceDefault,
+      InfoHeaderSlice,
+      InfoHeaderSliceDefaultPrimary,
+      InfoHeaderSliceVariation,
+      InfoHeaderSliceDefault,
     }
   }
 }

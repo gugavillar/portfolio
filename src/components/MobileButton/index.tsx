@@ -2,10 +2,7 @@ import { ComponentProps } from 'react'
 
 export const MobileButton = (props: ComponentProps<'button'>) => {
   return (
-    <button
-      className='block cursor-pointer text-white opacity-50 md:hidden'
-      {...props}
-    >
+    <button className='block cursor-pointer text-dark-400 md:hidden' {...props}>
       <span className='sr-only'>Toggle menu</span>
       <svg
         xmlns='http://www.w3.org/2000/svg'

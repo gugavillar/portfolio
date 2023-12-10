@@ -11,7 +11,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "home_content": {
+            "about": {
+              "type": "SharedSlice"
+            },
+            "info_header": {
               "type": "SharedSlice"
             }
           }

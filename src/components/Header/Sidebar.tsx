@@ -10,10 +10,10 @@ export const Sidebar = ({ toggle, isOpen, children }: SidebarProps) => {
   const translate = isOpen ? 'translate-x-0' : 'translate-x-full'
   return (
     <div
-      className={`fixed right-0 top-0 h-screen w-2/3 bg-portfolio-gray-900 px-8 pb-8 pt-12 duration-500 ease-in-out ${translate}`}
+      className={`fixed right-0 top-0 h-screen w-1/2 bg-dark-900 px-8 pb-8 pt-12 duration-500 ease-in-out ${translate}`}
     >
       <button
-        className='fixed right-5 top-5 cursor-pointer items-center text-2xl text-white opacity-50'
+        className='fixed right-8 top-5 cursor-pointer items-center text-xl text-dark-400'
         onClick={toggle}
       >
         X

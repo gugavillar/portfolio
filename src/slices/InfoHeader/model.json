@@ -1,8 +1,8 @@
 {
-  "id": "gallery",
+  "id": "info_header",
   "type": "SharedSlice",
-  "name": "Gallery",
-  "description": "Gallery",
+  "name": "InfoHeader",
+  "description": "InfoHeader",
   "variations": [
     {
       "id": "default",
@@ -11,49 +11,43 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
-      "items": {
-        "project_image": {
-          "type": "Image",
-          "config": {
-            "label": "project_image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "project_name": {
+      "primary": {
+        "role": {
           "type": "Text",
           "config": {
-            "label": "project_name",
+            "label": "role",
             "placeholder": ""
           }
         },
-        "technology": {
+        "name": {
           "type": "StructuredText",
           "config": {
-            "label": "technology",
+            "label": "name",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph"
+            "single": "heading1"
           }
         },
-        "gitrepo": {
+        "github_profile": {
           "type": "Link",
           "config": {
-            "label": "gitrepo",
-            "placeholder": "",
+            "label": "github_profile",
+            "placeholder": "https://github.com/username",
+            "allowTargetBlank": true,
             "select": null
           }
         },
-        "app": {
+        "linkedin_profile": {
           "type": "Link",
           "config": {
-            "label": "app",
-            "placeholder": "",
+            "label": "linkedin_profile",
+            "placeholder": "https://linkedin.com/in/username",
+            "allowTargetBlank": true,
             "select": null
           }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }
