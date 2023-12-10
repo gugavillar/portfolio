@@ -119,6 +119,7 @@ export type HeaderlinkDocument<Lang extends string = string> =
   >
 
 type HomeDocumentDataSlicesSlice =
+  | ProjectsSlice
   | ExperienceSlice
   | AboutSlice
   | InfoHeaderSlice
