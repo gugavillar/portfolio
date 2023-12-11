@@ -17,9 +17,9 @@ const About = ({ slice }: AboutProps): JSX.Element => {
       variation={slice.variation}
       id='about'
     >
-      <div className='flex gap-32'>
+      <div className='flex items-center gap-32'>
         <PrismicNextImage
-          className='hidden min-w-[367px] rounded border-l-4 border-brand lg:flex'
+          className='hidden h-3/4 rounded border-l-4 border-brand lg:flex'
           field={slice.primary.image}
         />
         <div>

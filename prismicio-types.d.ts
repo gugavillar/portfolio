@@ -5,63 +5,6 @@ import type * as prismic from '@prismicio/client'
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
 /**
- * Item in *FooterLinks → links*
- */
-export interface FooterlinksDocumentDataLinksItem {
-  /**
-   * label field in *FooterLinks → links*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footerlinks.links[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField
-
-  /**
-   * url field in *FooterLinks → links*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footerlinks.links[].url
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  url: prismic.LinkField
-}
-
-/**
- * Content for FooterLinks documents
- */
-interface FooterlinksDocumentData {
-  /**
-   * links field in *FooterLinks*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footerlinks.links[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  links: prismic.GroupField<Simplify<FooterlinksDocumentDataLinksItem>>
-}
-
-/**
- * FooterLinks document from Prismic
- *
- * - **API ID**: `footerlinks`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type FooterlinksDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<FooterlinksDocumentData>,
-    'footerlinks',
-    Lang
-  >
-
-/**
  * Item in *HeaderLink → links*
  */
 export interface HeaderlinkDocumentDataLinksItem {
@@ -172,10 +115,7 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, 'home', Lang>
 
-export type AllDocumentTypes =
-  | FooterlinksDocument
-  | HeaderlinkDocument
-  | HomeDocument
+export type AllDocumentTypes = HeaderlinkDocument | HomeDocument
 
 /**
  * Primary content in *About → Primary*
@@ -494,9 +434,6 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
-      FooterlinksDocument,
-      FooterlinksDocumentData,
-      FooterlinksDocumentDataLinksItem,
       HeaderlinkDocument,
       HeaderlinkDocumentData,
       HeaderlinkDocumentDataLinksItem,

@@ -42,7 +42,7 @@ const InfoHeader = ({ slice }: InfoHeaderProps): JSX.Element => {
         <PrismicRichText components={H1} field={slice.primary.name} />
         <Paragraph>{slice.primary.role}</Paragraph>
       </div>
-      <Loop className='invisible absolute right-0 top-3 lg:visible' />
+      <Loop className='invisible absolute right-0 top-3 -z-20 lg:visible' />
       <SocialButtons
         github={slice.primary.github_profile}
         linkedIn={slice.primary.linkedin_profile}

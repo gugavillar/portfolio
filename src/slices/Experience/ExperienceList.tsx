@@ -26,8 +26,8 @@ export const ExperienceList = ({ items }: ExperienceListProps) => {
   }
 
   return (
-    <div className='flex flex-col gap-10 md:flex-row md:gap-[88px]'>
-      <ul className='flex gap-3 md:flex-col'>
+    <div className='flex flex-col gap-10 md:gap-[88px] lg:flex-row'>
+      <ul className='flex gap-3 lg:flex-col'>
         {items.map((item, index) => {
           const isSelected =
             selectedItem.company === item.company
@@ -38,7 +38,7 @@ export const ExperienceList = ({ items }: ExperienceListProps) => {
             <li
               key={index}
               onClick={() => handleSelectedItem(item)}
-              className={`flex h-10 w-36 items-center justify-center text-lg text-white md:h-14 md:w-48 md:border-l-2 ${isSelected}`}
+              className={`flex h-10 w-36 items-center justify-center text-lg text-white md:h-14 md:w-48 lg:border-l-2 ${isSelected}`}
             >
               {item.company}
             </li>

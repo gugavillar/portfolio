@@ -1,16 +1,27 @@
 import type { Content } from '@prismicio/client'
-import type { SliceComponentProps } from '@prismicio/react'
+import { type SliceComponentProps } from '@prismicio/react'
+
+import { Container, Title } from '@/components'
+
+import { ProjectContent } from './ProjectContent'
 
 export type ProjectsProps = SliceComponentProps<Content.ProjectsSlice>
 
 const Projects = ({ slice }: ProjectsProps): JSX.Element => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
+    <Container
+      sliceType={slice.slice_type}
+      variation={slice.variation}
+      className='bg-dark-700 md:py-[100px]'
+      id='projects'
     >
-      Placeholder component for projects (variation: {slice.variation}) Slices
-    </section>
+      <Title className='mb-6 md:mb-[60px]'>PROJETOS</Title>
+      <div className='grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-5'>
+        {slice.items.map((item, index) => (
+          <ProjectContent item={item} key={index} />
+        ))}
+      </div>
+    </Container>
   )
 }
 

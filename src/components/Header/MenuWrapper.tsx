@@ -7,7 +7,7 @@ type MenuWrapperProps = ComponentProps<'nav'> & {
 export const MenuWrapper = ({ children, ...props }: MenuWrapperProps) => {
   return (
     <nav aria-label='Menu principal' {...props}>
-      <menu className='flex flex-col gap-5 text-dark-400 md:flex-row'>
+      <menu className='flex flex-col gap-5 text-dark-400 md:flex-row md:gap-14'>
         {children}
       </menu>
     </nav>
