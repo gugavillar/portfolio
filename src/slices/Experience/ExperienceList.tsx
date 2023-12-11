@@ -31,14 +31,14 @@ export const ExperienceList = ({ items }: ExperienceListProps) => {
         {items.map((item, index) => {
           const isSelected =
             selectedItem.company === item.company
-              ? 'bg-dark-700 md:border-brand'
-              : 'md:border-dark-700'
+              ? 'bg-dark-600 max-lg:border-b-2 border-brand lg:border-l-2'
+              : 'max-lg:border-b-2 border-dark-700 md:border-dark-700 '
 
           return (
             <li
               key={index}
               onClick={() => handleSelectedItem(item)}
-              className={`flex h-10 w-36 items-center justify-center text-lg text-white md:h-14 md:w-48 lg:border-l-2 ${isSelected}`}
+              className={`flex h-10 w-36 items-center justify-center text-lg text-white transition-colors duration-700 ease-in-out md:h-14 md:w-48 ${isSelected}`}
             >
               {item.company}
             </li>
