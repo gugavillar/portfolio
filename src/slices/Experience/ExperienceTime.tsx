@@ -2,7 +2,7 @@ import { ComponentProps } from 'react'
 
 import { type DateField } from '@prismicio/client'
 
-import { formatDate } from '@/formatters/date'
+import { formatDate } from '@/formatters'
 
 type ExperienceTimeProps = ComponentProps<'p'> & {
   initial: DateField

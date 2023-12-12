@@ -22,7 +22,7 @@ export const MobileDrawer = ({ data }: MobileDrawerProps) => {
       <MobileButton onClick={toggle} />
       <Sidebar toggle={toggle} isOpen={isOpen}>
         <MenuWrapper>
-          <MenuLinks data={data} />
+          <MenuLinks data={data} toggle={toggle} />
         </MenuWrapper>
       </Sidebar>
     </>
