@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { MenuLinks } from './MenuLinks'
 import { MenuWrapper } from './MenuWrapper'
@@ -14,13 +14,32 @@ type MobileDrawerProps = {
 
 export const MobileDrawer = ({ data }: MobileDrawerProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const drawerRef = useRef<HTMLDivElement>(null)
 
   const toggle = () => setIsOpen((prevState) => !prevState)
+
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (
+        drawerRef.current &&
+        !drawerRef.current?.contains(event.target) &&
+        isOpen
+      ) {
+        toggle()
+      }
+    }
+
+    document.addEventListener('click', handleClickOutside, true)
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true)
+    }
+  }, [isOpen])
 
   return (
     <>
       <MobileButton onClick={toggle} />
-      <Sidebar toggle={toggle} isOpen={isOpen}>
+      <Sidebar toggle={toggle} isOpen={isOpen} drawerRef={drawerRef}>
         <MenuWrapper>
           <MenuLinks data={data} toggle={toggle} />
         </MenuWrapper>
