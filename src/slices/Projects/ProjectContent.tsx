@@ -37,7 +37,11 @@ type ProjectContentProps = {
 export const ProjectContent = ({ item }: ProjectContentProps) => {
   return (
     <div>
-      <PrismicNextImage loading='lazy' field={item.screenshot} />
+      <PrismicNextImage
+        sizes='(max-width: 768px) 714px, (max-width: 1280px) 450px, (min-width: 1281px) 450px'
+        loading='lazy'
+        field={item.screenshot}
+      />
       <PrismicRichText components={H3} field={item.name} />
       <PrismicRichText components={Paragraph} field={item.description} />
       <div className='flex flex-wrap gap-2'>

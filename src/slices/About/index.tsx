@@ -20,6 +20,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
       <div className='flex items-center gap-32'>
         <PrismicNextImage
           loading='lazy'
+          height={256}
           className='hidden h-3/4 rounded border-l-4 border-brand lg:flex'
           field={slice.primary.image}
         />
