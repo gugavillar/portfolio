@@ -15,7 +15,7 @@ export const Sidebar = ({
 }: SidebarProps) => {
   const translate = isOpen ? 'translate-x-0' : 'translate-x-full'
   return (
-    <div
+    <aside
       className={`fixed right-0 top-0 h-screen w-1/2 bg-dark-900 px-8 pb-8 pt-12 duration-500 ease-in-out ${translate}`}
       ref={drawerRef}
     >
@@ -26,6 +26,6 @@ export const Sidebar = ({
         X
       </button>
       {children}
-    </div>
+    </aside>
   )
 }

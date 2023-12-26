@@ -33,11 +33,11 @@ export default function RootLayout({
   return (
     <html lang='pt-BR' className={`${poppins.variable} ${inter.variable}`}>
       <body className='flex h-screen w-screen flex-col bg-dark-900'>
-        <div>
+        <section>
           <Header />
           <main className='flex flex-1 flex-col'>{children}</main>
           <Footer />
-        </div>
+        </section>
       </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>
