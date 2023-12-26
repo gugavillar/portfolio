@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { Author } from 'next/dist/lib/metadata/types/metadata-types'
 
 import { createClient } from '@/prismicio'
 import { SliceZone } from '@prismicio/react'
@@ -19,5 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: page.data.meta_title,
     description: page.data.meta_description,
+    authors: page.data.meta_authors as Array<Author>,
+    keywords: page.data.meta_keywords,
   }
 }

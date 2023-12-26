@@ -68,6 +68,31 @@ type HomeDocumentDataSlicesSlice =
   | InfoHeaderSlice
 
 /**
+ * Item in *Home → meta_authors*
+ */
+export interface HomeDocumentDataMetaAuthorsItem {
+  /**
+   * name field in *Home → meta_authors*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.meta_authors[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField
+
+  /**
+   * url field in *Home → meta_authors*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.meta_authors[].url
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  url: prismic.KeyTextField
+}
+
+/**
  * Content for Home documents
  */
 interface HomeDocumentData {
@@ -101,6 +126,28 @@ interface HomeDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Keywords field in *Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.meta_keywords
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_keywords: prismic.KeyTextField
+
+  /**
+   * meta_authors field in *Home*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.meta_authors[]
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  meta_authors: prismic.GroupField<Simplify<HomeDocumentDataMetaAuthorsItem>>
 }
 
 /**
@@ -440,6 +487,7 @@ declare module '@prismicio/client' {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      HomeDocumentDataMetaAuthorsItem,
       AllDocumentTypes,
       AboutSlice,
       AboutSliceDefaultPrimary,
