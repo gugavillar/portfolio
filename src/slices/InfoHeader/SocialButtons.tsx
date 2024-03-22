@@ -11,11 +11,15 @@ type SocialButtonsProps = {
 export const SocialButtons = ({ github, linkedIn }: SocialButtonsProps) => {
   return (
     <div className='mt-10 flex gap-6 md:mt-[60px]'>
-      <PrismicNextLink className='btn-purple' field={linkedIn}>
+      <PrismicNextLink
+        className='btn-purple'
+        field={linkedIn}
+        data-cy='linkedin'
+      >
         <LinkedIn />
         LinkedIn
       </PrismicNextLink>
-      <PrismicNextLink className='btn-pink' field={github}>
+      <PrismicNextLink className='btn-pink' field={github} data-cy='github'>
         <GitHub />
         GitHub
       </PrismicNextLink>

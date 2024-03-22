@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import { Poppins, Inter } from 'next/font/google'
 
 import { repositoryName } from '@/prismicio'
@@ -7,11 +6,6 @@ import { PrismicPreview } from '@prismicio/next'
 import { Header, Footer } from '@/components'
 
 import './globals.css'
-
-export const metadata: Metadata = {
-  title: 'Portfólio',
-  description: 'Gustavo Villar front-end portfólio',
-}
 
 const poppins = Poppins({
   subsets: ['latin'],
