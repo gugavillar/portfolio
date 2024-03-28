@@ -84,6 +84,16 @@
 								"url": "http://google.com"
 							}
 						}
+					],
+					[
+						"github",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io"
+							}
+						}
 					]
 				]
 			}

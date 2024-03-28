@@ -439,6 +439,16 @@ export interface ProjectsSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField
+
+  /**
+   * github field in *Projects → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.items[].github
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  github: prismic.LinkField
 }
 
 /**

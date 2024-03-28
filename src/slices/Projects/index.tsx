@@ -16,7 +16,7 @@ const Projects = ({ slice }: ProjectsProps): JSX.Element => {
       id='projects'
     >
       <Title className='mb-6 md:mb-[60px]'>PROJETOS</Title>
-      <div className='grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-5 xl:grid-cols-3'>
+      <div className='grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-5 xl:grid-cols-3'>
         {slice.items.map((item, index) => (
           <ProjectContent item={item} key={index} />
         ))}

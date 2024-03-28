@@ -10,17 +10,13 @@ import { Link } from '@/components/Icon'
 
 const H3: JSXMapSerializer = {
   heading3: ({ children }) => (
-    <h3 className='mt-6 font-medium text-white md:mt-10 md:text-2xl'>
-      {children}
-    </h3>
+    <h3 className='font-medium text-white md:text-2xl'>{children}</h3>
   ),
 }
 
 const Paragraph: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <p className='mb-2 mt-4 text-justify text-sm font-light text-dark-400 md:mb-[26px] md:mt-[30px]'>
-      {children}
-    </p>
+    <p className='text-justify text-sm font-light text-dark-400'>{children}</p>
   ),
 }
 
@@ -36,7 +32,7 @@ type ProjectContentProps = {
 
 export const ProjectContent = ({ item }: ProjectContentProps) => {
   return (
-    <div>
+    <div className='flex flex-col gap-6'>
       <PrismicNextImage
         sizes='(max-width: 768px) 714px, (max-width: 1280px) 450px, (min-width: 1281px) 450px'
         loading='lazy'
@@ -47,13 +43,26 @@ export const ProjectContent = ({ item }: ProjectContentProps) => {
       <div className='flex flex-wrap gap-2'>
         <PrismicRichText components={Technologies} field={item.technologies} />
       </div>
-      <PrismicNextLink
-        className='btn-purple mt-8 w-full md:w-[180px]'
-        field={item.link}
-      >
-        <Link />
-        Visualizar
-      </PrismicNextLink>
+      <div className='mt-auto flex gap-6'>
+        {item.link.link_type === 'Web' && (
+          <PrismicNextLink
+            className='btn-purple w-full md:w-[180px]'
+            field={item.link}
+          >
+            <Link />
+            Visualizar
+          </PrismicNextLink>
+        )}
+        {item.github.link_type === 'Web' && (
+          <PrismicNextLink
+            className='btn-pink w-full md:w-[180px]'
+            field={item.github}
+          >
+            <Link />
+            Github
+          </PrismicNextLink>
+        )}
+      </div>
     </div>
   )
 }
