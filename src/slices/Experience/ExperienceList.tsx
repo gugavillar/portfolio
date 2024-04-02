@@ -36,6 +36,7 @@ export const ExperienceList = ({ items }: ExperienceListProps) => {
 
           return (
             <li
+              data-cy={`experience-${index}`}
               key={index}
               onClick={() => handleSelectedItem(item)}
               className={`flex h-10 w-36 items-center justify-center text-lg text-white transition-colors duration-700 ease-in-out md:h-14 md:w-48 ${isSelected}`}
