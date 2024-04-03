@@ -35,3 +35,13 @@
 //     }
 //   }
 // }
+
+declare namespace Cypress {
+  interface Chainable {
+    getBySelector(selector: string): Chainable<JQuery<HTMLElement>>
+  }
+}
+
+Cypress.Commands.add('getBySelector', (selector: string) => {
+  return cy.get(`[data-cy="${selector}"]`)
+})
