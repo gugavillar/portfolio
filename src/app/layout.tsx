@@ -25,7 +25,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='pt-BR' className={`${poppins.variable} ${inter.variable}`}>
+    <html
+      lang='pt-BR'
+      className={`${poppins.variable} ${inter.variable} scroll-pt-20 scroll-smooth`}
+    >
       <body className='flex h-screen w-screen flex-col bg-dark-900'>
         <section>
           <Header />

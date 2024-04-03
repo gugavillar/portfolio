@@ -10,7 +10,3 @@
     @apply flex w-[144px] md:w-[160px] h-[40px] md:h-[45px] items-center justify-center gap-4 border-2 text-sm font-semibold text-white [border-image:linear-gradient(to_bottom_right,#d24074,#6518b4)_1]
   }
 }
-
-html {
-  scroll-behavior: smooth;
-}
