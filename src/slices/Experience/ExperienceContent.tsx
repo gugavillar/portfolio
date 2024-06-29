@@ -8,13 +8,8 @@ import {
 import { ExperienceTime } from './ExperienceTime'
 
 const H3: JSXMapSerializer = {
-  heading3: ({ children, text }) => (
-    <h3
-      data-cy={`experience-role-${text}`}
-      className='font-medium text-white md:text-2xl'
-    >
-      {children}
-    </h3>
+  heading3: ({ children }) => (
+    <h3 className='font-medium text-white md:text-2xl'>{children}</h3>
   ),
 }
 
