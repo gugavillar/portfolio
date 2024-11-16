@@ -15,7 +15,7 @@ export const Header = async ({
   return (
     <header className='sticky top-0 z-50 flex items-center bg-dark-900'>
       <div className='flex w-full items-center justify-between p-6 md:px-11 md:py-10 lg:px-[180px]'>
-        <h1 className='text-2xl font-medium text-brand'>Portfólio</h1>
+        <h1 className='text-2xl font-medium text-brand'>{data.title}</h1>
         <MenuWrapper className='hidden md:block'>
           <MenuLinks data={data} />
         </MenuWrapper>

@@ -6,6 +6,13 @@
   "status": true,
   "json": {
     "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "title",
+          "placeholder": ""
+        }
+      },
       "links": {
         "type": "Group",
         "config": {

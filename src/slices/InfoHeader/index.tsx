@@ -38,7 +38,7 @@ const InfoHeader = ({ slice }: InfoHeaderProps): JSX.Element => {
       id='home'
     >
       <div className='mt-14 space-y-2 md:mt-[152px] md:space-y-3'>
-        <Paragraph>OLÁ, EU SOU</Paragraph>
+        <Paragraph>{slice.primary.title}</Paragraph>
         <PrismicRichText components={H1} field={slice.primary.name} />
         <Paragraph>{slice.primary.role}</Paragraph>
       </div>

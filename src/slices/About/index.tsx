@@ -25,7 +25,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
           field={slice.primary.image}
         />
         <div>
-          <Title>SOBRE MIM</Title>
+          <Title>{slice.primary.title}</Title>
           <PersonalDescription
             location={slice.primary.location}
             aboutMe={slice.primary.about_me}

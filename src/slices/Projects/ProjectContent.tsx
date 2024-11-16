@@ -50,7 +50,7 @@ export const ProjectContent = ({ item }: ProjectContentProps) => {
             field={item.link}
           >
             <Link />
-            Visualizar
+            {item.button_label}
           </PrismicNextLink>
         )}
         {item.github.link_type === 'Web' && (

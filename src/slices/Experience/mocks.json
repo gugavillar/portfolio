@@ -2,7 +2,13 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "proud",
+				"type": "Text"
+			}
+		},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",

@@ -15,7 +15,7 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
       id='experience'
     >
       <div className='py-10 md:py-[100px]'>
-        <Title className='mb-6 md:mb-[26px]'>EXPERIÊNCIA</Title>
+        <Title className='mb-6 md:mb-[26px]'>{slice.primary.title}</Title>
         <ExperienceList items={slice.items} />
       </div>
     </Container>

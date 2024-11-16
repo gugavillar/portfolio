@@ -1,9 +1,11 @@
 import { ComponentProps } from 'react'
 
+import { type KeyTextField } from '@prismicio/client'
+
 import { twMerge } from 'tailwind-merge'
 
 type TitleProps = ComponentProps<'h2'> & {
-  children: string
+  children: KeyTextField
 }
 
 export const Title = ({ children, className, ...props }: TitleProps) => {

@@ -11,7 +11,15 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        }
+      },
       "items": {
         "screenshot": {
           "type": "Image",
@@ -46,6 +54,13 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph"
+          }
+        },
+        "button_label": {
+          "type": "Text",
+          "config": {
+            "label": "button_label",
+            "placeholder": ""
           }
         },
         "link": {

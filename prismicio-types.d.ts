@@ -34,6 +34,17 @@ export interface HeaderlinkDocumentDataLinksItem {
  */
 interface HeaderlinkDocumentData {
   /**
+   * title field in *HeaderLink*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: headerlink.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
    * links field in *HeaderLink*
    *
    * - **Field Type**: Group
@@ -165,35 +176,45 @@ export type HomeDocument<Lang extends string = string> =
 export type AllDocumentTypes = HeaderlinkDocument | HomeDocument
 
 /**
- * Primary content in *About → Primary*
+ * Primary content in *About → Default → Primary*
  */
 export interface AboutSliceDefaultPrimary {
   /**
-   * location field in *About → Primary*
+   * title field in *About → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * location field in *About → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
-   * - **API ID Path**: about.primary.location
+   * - **API ID Path**: about.default.primary.location
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   location: prismic.TitleField
 
   /**
-   * about_me field in *About → Primary*
+   * about_me field in *About → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: about.primary.about_me
+   * - **API ID Path**: about.default.primary.about_me
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   about_me: prismic.RichTextField
 
   /**
-   * image field in *About → Primary*
+   * image field in *About → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: about.primary.image
+   * - **API ID Path**: about.default.primary.image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>
@@ -225,6 +246,21 @@ type AboutSliceVariation = AboutSliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type AboutSlice = prismic.SharedSlice<'about', AboutSliceVariation>
+
+/**
+ * Primary content in *Experience → Default → Primary*
+ */
+export interface ExperienceSliceDefaultPrimary {
+  /**
+   * title field in *Experience → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experience.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+}
 
 /**
  * Primary content in *Experience → Items*
@@ -290,7 +326,7 @@ export interface ExperienceSliceDefaultItem {
  */
 export type ExperienceSliceDefault = prismic.SharedSliceVariation<
   'default',
-  Record<string, never>,
+  Simplify<ExperienceSliceDefaultPrimary>,
   Simplify<ExperienceSliceDefaultItem>
 >
 
@@ -312,45 +348,55 @@ export type ExperienceSlice = prismic.SharedSlice<
 >
 
 /**
- * Primary content in *InfoHeader → Primary*
+ * Primary content in *InfoHeader → Default → Primary*
  */
 export interface InfoHeaderSliceDefaultPrimary {
   /**
-   * role field in *InfoHeader → Primary*
+   * title field in *InfoHeader → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: info_header.primary.role
+   * - **API ID Path**: info_header.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * role field in *InfoHeader → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_header.default.primary.role
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   role: prismic.KeyTextField
 
   /**
-   * name field in *InfoHeader → Primary*
+   * name field in *InfoHeader → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
-   * - **API ID Path**: info_header.primary.name
+   * - **API ID Path**: info_header.default.primary.name
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   name: prismic.TitleField
 
   /**
-   * github_profile field in *InfoHeader → Primary*
+   * github_profile field in *InfoHeader → Default → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: https://github.com/username
-   * - **API ID Path**: info_header.primary.github_profile
+   * - **API ID Path**: info_header.default.primary.github_profile
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   github_profile: prismic.LinkField
 
   /**
-   * linkedin_profile field in *InfoHeader → Primary*
+   * linkedin_profile field in *InfoHeader → Default → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: https://linkedin.com/in/username
-   * - **API ID Path**: info_header.primary.linkedin_profile
+   * - **API ID Path**: info_header.default.primary.linkedin_profile
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   linkedin_profile: prismic.LinkField
@@ -385,6 +431,21 @@ export type InfoHeaderSlice = prismic.SharedSlice<
   'info_header',
   InfoHeaderSliceVariation
 >
+
+/**
+ * Primary content in *Projects → Default → Primary*
+ */
+export interface ProjectsSliceDefaultPrimary {
+  /**
+   * title field in *Projects → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+}
 
 /**
  * Primary content in *Projects → Items*
@@ -431,6 +492,16 @@ export interface ProjectsSliceDefaultItem {
   technologies: prismic.RichTextField
 
   /**
+   * button_label field in *Projects → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.items[].button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField
+
+  /**
    * link field in *Projects → Items*
    *
    * - **Field Type**: Link
@@ -460,7 +531,7 @@ export interface ProjectsSliceDefaultItem {
  */
 export type ProjectsSliceDefault = prismic.SharedSliceVariation<
   'default',
-  Record<string, never>,
+  Simplify<ProjectsSliceDefaultPrimary>,
   Simplify<ProjectsSliceDefaultItem>
 >
 
@@ -489,6 +560,17 @@ declare module '@prismicio/client' {
     ): prismic.Client<AllDocumentTypes>
   }
 
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>
+  }
+
   namespace Content {
     export type {
       HeaderlinkDocument,
@@ -504,6 +586,7 @@ declare module '@prismicio/client' {
       AboutSliceVariation,
       AboutSliceDefault,
       ExperienceSlice,
+      ExperienceSliceDefaultPrimary,
       ExperienceSliceDefaultItem,
       ExperienceSliceVariation,
       ExperienceSliceDefault,
@@ -512,6 +595,7 @@ declare module '@prismicio/client' {
       InfoHeaderSliceVariation,
       InfoHeaderSliceDefault,
       ProjectsSlice,
+      ProjectsSliceDefaultPrimary,
       ProjectsSliceDefaultItem,
       ProjectsSliceVariation,
       ProjectsSliceDefault,

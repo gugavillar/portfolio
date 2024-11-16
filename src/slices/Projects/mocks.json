@@ -2,7 +2,13 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "popular",
+				"type": "Text"
+			}
+		},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",
@@ -93,6 +99,14 @@
 								"__TYPE__": "ExternalLink",
 								"url": "https://prismic.io"
 							}
+						}
+					],
+					[
+						"button_label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "offer",
+							"type": "Text"
 						}
 					]
 				]
