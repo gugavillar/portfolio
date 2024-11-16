@@ -17,7 +17,7 @@ export const ExperienceTime = ({
 }: ExperienceTimeProps) => {
   const experienceTime = final
     ? `${formatDate(initial)} - ${formatDate(final)}`
-    : `${formatDate(initial)} - Atual}`
+    : `${formatDate(initial)} - Atual`
   return (
     <p
       className={`text-xs font-medium text-white md:text-base ${className}`}
