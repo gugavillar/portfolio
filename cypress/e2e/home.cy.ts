@@ -3,6 +3,12 @@ describe('Portfolio tests', () => {
     cy.visit('/')
   })
 
+  it('should page have menu', () => {
+    cy.contains('Sobre mim').should('be.visible').click()
+    cy.url().should('eq', 'http://localhost:3000/#about')
+    cy.get('#projects').should('be.visible')
+  })
+
   it('should page have actions buttons with correct link', () => {
     cy.getBySelector('email').should(
       'have.attr',
@@ -38,17 +44,21 @@ describe('Portfolio tests', () => {
       'have.class',
       'bg-dark-600 max-lg:border-b-2 border-brand lg:border-l-2',
     )
-    cy.getBySelector('experience-role-Frontend Developer React').should(
-      'be.visible',
-    )
+    cy.contains('Frontend Developer React').should('be.visible')
 
-    cy.getBySelector('experience-1')
+    cy.getBySelector('experience-2')
       .click()
       .should(
         'have.class',
         'bg-dark-600 max-lg:border-b-2 border-brand lg:border-l-2',
       )
 
-    cy.getBySelector('experience-role-Coordenador de TI').should('be.visible')
+    cy.contains('Coordenador de TI').should('be.visible')
+  })
+
+  it('should change language', () => {
+    cy.get('div.flex > .flex > :nth-child(2) > a').click()
+
+    cy.url().should('eq', 'http://localhost:3000/en-us')
   })
 })
