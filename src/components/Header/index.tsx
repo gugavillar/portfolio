@@ -1,13 +1,18 @@
 import { createClient } from '@/prismicio'
 
+import { getLocales } from '@/utils/getLocales'
+
 import { MenuLinks } from './MenuLinks'
 import { MenuWrapper } from './MenuWrapper'
 import { MobileDrawer } from './MobileDrawer'
+import { LanguageSwitcher } from '../LanguageSwitch'
 
 export const Header = async ({
   params: { lang },
+  locales,
 }: {
   params: { lang: string }
+  locales: Awaited<ReturnType<typeof getLocales>>
 }) => {
   const client = createClient()
   const { data } = await client.getSingle('headerlink', { lang })
@@ -18,6 +23,7 @@ export const Header = async ({
         <h1 className='text-2xl font-medium text-brand'>{data.title}</h1>
         <MenuWrapper className='hidden md:block'>
           <MenuLinks data={data} />
+          <LanguageSwitcher locales={locales} lang={lang} />
         </MenuWrapper>
         <MobileDrawer data={data} />
       </div>
