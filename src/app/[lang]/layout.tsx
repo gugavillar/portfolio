@@ -5,7 +5,7 @@ import { PrismicPreview } from '@prismicio/next'
 
 import { Header, Footer } from '@/components'
 
-import './globals.css'
+import '../globals.css'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -21,8 +21,10 @@ const inter = Inter({
 
 export default function RootLayout({
   children,
+  params: { lang },
 }: {
   children: React.ReactNode
+  params: { lang: string }
 }) {
   return (
     <html
@@ -31,7 +33,7 @@ export default function RootLayout({
     >
       <body className='flex h-screen w-screen flex-col bg-dark-900'>
         <section>
-          <Header />
+          <Header params={{ lang }} />
           <main className='flex flex-1 flex-col'>{children}</main>
           <Footer />
         </section>

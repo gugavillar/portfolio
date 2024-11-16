@@ -4,9 +4,13 @@ import { MenuLinks } from './MenuLinks'
 import { MenuWrapper } from './MenuWrapper'
 import { MobileDrawer } from './MobileDrawer'
 
-export const Header = async () => {
+export const Header = async ({
+  params: { lang },
+}: {
+  params: { lang: string }
+}) => {
   const client = createClient()
-  const { data } = await client.getSingle('headerlink')
+  const { data } = await client.getSingle('headerlink', { lang })
 
   return (
     <header className='sticky top-0 z-50 flex items-center bg-dark-900'>
