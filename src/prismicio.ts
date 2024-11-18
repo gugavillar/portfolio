@@ -33,7 +33,7 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
     fetchOptions:
       process.env.NODE_ENV === 'production'
-        ? { next: { tags: ['prismic'] }, cache: 'force-cache' }
+        ? { next: { tags: ['prismic'], revalidate: 10 }, cache: 'force-cache' }
         : { next: { revalidate: 5 } },
     ...config,
   })
