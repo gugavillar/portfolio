@@ -25,7 +25,7 @@ export const Header = async ({
           <MenuLinks data={data} />
           <LanguageSwitcher locales={locales} lang={lang} />
         </MenuWrapper>
-        <MobileDrawer data={data} />
+        <MobileDrawer data={data} locales={locales} lang={lang} />
       </div>
     </header>
   )

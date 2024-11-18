@@ -1,9 +1,10 @@
 'use client'
 import Link from 'next/link'
+import { ComponentProps } from 'react'
 
 import { twMerge } from 'tailwind-merge'
 
-interface LanguageSwitcherProps {
+export type LanguageSwitcherProps = ComponentProps<'div'> & {
   locales: {
     lang: string
     lang_name: string
@@ -17,9 +18,13 @@ const localeLabels = {
   'pt-br': 'BR',
 }
 
-export const LanguageSwitcher = ({ locales, lang }: LanguageSwitcherProps) => {
+export const LanguageSwitcher = ({
+  locales,
+  lang,
+  className,
+}: LanguageSwitcherProps) => {
   return (
-    <div className='flex flex-wrap gap-3'>
+    <div className={twMerge('flex flex-wrap gap-3', className)}>
       <span aria-hidden>🌐</span>
       <ul className='flex flex-wrap gap-3'>
         {locales.map((locale) => (
