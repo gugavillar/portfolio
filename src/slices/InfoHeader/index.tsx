@@ -16,7 +16,7 @@ export type InfoHeaderProps = SliceComponentProps<Content.InfoHeaderSlice>
 
 const H1: JSXMapSerializer = {
   heading1: ({ children }) => (
-    <h1 className='text-[32px] font-semibold text-brand md:text-[64px]'>
+    <h1 className='text-[2rem] font-semibold text-brand md:text-[4rem]'>
       {children}
     </h1>
   ),
@@ -37,7 +37,7 @@ const InfoHeader = ({ slice }: InfoHeaderProps): JSX.Element => {
       variation={slice.variation}
       id='home'
     >
-      <div className='mt-14 space-y-2 md:mt-[152px] md:space-y-3'>
+      <div className='mt-14 space-y-2 md:mt-[9.5rem] md:space-y-3'>
         <Paragraph>{slice.primary.title}</Paragraph>
         <PrismicRichText components={H1} field={slice.primary.name} />
         <Paragraph>{slice.primary.role}</Paragraph>

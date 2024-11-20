@@ -12,10 +12,10 @@ const Projects = ({ slice }: ProjectsProps): JSX.Element => {
     <Container
       sliceType={slice.slice_type}
       variation={slice.variation}
-      className='bg-dark-700 md:py-[100px]'
+      className='bg-dark-700 md:py-[6.25rem]'
       id='projects'
     >
-      <Title className='mb-6 md:mb-[60px]'>{slice.primary.title}</Title>
+      <Title className='mb-6 md:mb-[3.75rem]'>{slice.primary.title}</Title>
       <div className='grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-5 xl:grid-cols-3'>
         {slice.items.map((item, index) => (
           <ProjectContent item={item} key={index} />

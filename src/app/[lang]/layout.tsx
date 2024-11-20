@@ -36,7 +36,7 @@ export default async function RootLayout({
       lang='pt-BR'
       className={`${poppins.variable} ${inter.variable} scroll-pt-20 scroll-smooth`}
     >
-      <body className='flex h-screen w-screen flex-col bg-dark-900'>
+      <body className='h-dvh w-dvw flex flex-col bg-dark-900'>
         <section>
           <Header params={{ lang }} locales={locales} />
           <main className='flex flex-1 flex-col'>{children}</main>

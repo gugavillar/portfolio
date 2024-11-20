@@ -1,5 +1,7 @@
 import { RefObject, ReactNode } from 'react'
 
+import { twMerge } from 'tailwind-merge'
+
 type SidebarProps = {
   toggle: () => void
   isOpen: boolean
@@ -13,10 +15,12 @@ export const Sidebar = ({
   children,
   drawerRef,
 }: SidebarProps) => {
-  const translate = isOpen ? 'translate-x-0' : 'translate-x-full'
   return (
     <aside
-      className={`fixed right-0 top-0 h-screen w-1/2 bg-dark-900 px-8 pb-8 pt-12 duration-500 ease-in-out ${translate}`}
+      className={twMerge(
+        'fixed right-0 top-0 h-full w-1/2 bg-dark-900 px-8 pb-8 pt-12 duration-500 ease-in-out',
+        isOpen ? 'translate-x-0' : 'translate-x-full',
+      )}
       ref={drawerRef}
     >
       <button

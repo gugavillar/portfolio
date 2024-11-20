@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { type Content } from '@prismicio/client'
 import { type SliceComponentProps } from '@prismicio/react'
 
+import { twMerge } from 'tailwind-merge'
+
 import { ExperienceContent } from './ExperienceContent'
 import { type Simplify } from '../../../prismicio-types'
 
@@ -25,8 +27,8 @@ export const ExperienceList = ({ items }: ExperienceListProps) => {
   }
 
   return (
-    <div className='flex flex-col gap-10 md:gap-[88px] lg:flex-row'>
-      <ul className='flex gap-3 lg:flex-col'>
+    <div className='flex flex-col gap-10 md:gap-[5.5rem] lg:flex-row'>
+      <ul className='flex gap-3 overflow-x-auto lg:flex-col'>
         {items.map((item, index) => {
           const isSelected =
             selectedItem.company === item.company
@@ -38,7 +40,10 @@ export const ExperienceList = ({ items }: ExperienceListProps) => {
               data-cy={`experience-${index}`}
               key={index}
               onClick={() => handleSelectedItem(item)}
-              className={`flex h-10 w-36 items-center justify-center text-lg text-white transition-colors duration-500 ease-in-out md:h-14 md:w-48 ${isSelected}`}
+              className={twMerge(
+                'flex h-10 min-w-[9.375rem] items-center justify-center whitespace-nowrap text-lg text-white transition-colors duration-500 ease-in-out md:h-14 md:w-48',
+                isSelected,
+              )}
             >
               {item.company}
             </li>

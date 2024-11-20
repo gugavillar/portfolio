@@ -12,7 +12,7 @@ export type AboutProps = SliceComponentProps<Content.AboutSlice>
 const About = ({ slice }: AboutProps): JSX.Element => {
   return (
     <Container
-      className='mt-14 min-h-[362px] bg-dark-700 py-10 lg:py-[100px]'
+      className='mt-14 min-h-[22.625rem] bg-dark-700 py-10 lg:py-[6.25rem]'
       sliceType={slice.slice_type}
       variation={slice.variation}
       id='about'

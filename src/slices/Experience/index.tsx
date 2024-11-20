@@ -14,8 +14,8 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
       variation={slice.variation}
       id='experience'
     >
-      <div className='py-10 md:py-[100px]'>
-        <Title className='mb-6 md:mb-[26px]'>{slice.primary.title}</Title>
+      <div className='overflow-x-clip py-10 md:py-[6.25rem]'>
+        <Title className='mb-6 md:mb-[1.625rem]'>{slice.primary.title}</Title>
         <ExperienceList items={slice.items} />
       </div>
     </Container>

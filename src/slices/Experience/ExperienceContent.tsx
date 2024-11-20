@@ -27,7 +27,7 @@ type ExperienceContentProps = {
 
 export const ExperienceContent = ({ item }: ExperienceContentProps) => {
   return (
-    <div className='flex flex-1 flex-col space-y-4 md:space-y-[26px]'>
+    <div className='flex flex-1 flex-col space-y-4 md:space-y-[1.625rem]'>
       <div className='flex items-center justify-between'>
         <PrismicRichText components={H3} field={item.role} />
         <ExperienceTime

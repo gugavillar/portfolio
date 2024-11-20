@@ -46,7 +46,7 @@ export const ProjectContent = ({ item }: ProjectContentProps) => {
       <div className='mt-auto flex gap-6'>
         {item.link.link_type === 'Web' && (
           <PrismicNextLink
-            className='btn-purple w-full md:w-[180px]'
+            className='btn-purple w-full md:w-[11.25rem]'
             field={item.link}
           >
             <Link />
@@ -55,7 +55,7 @@ export const ProjectContent = ({ item }: ProjectContentProps) => {
         )}
         {item.github.link_type === 'Web' && (
           <PrismicNextLink
-            className='btn-pink w-full md:w-[180px]'
+            className='btn-pink w-full md:w-[11.25rem]'
             field={item.github}
           >
             <Link />

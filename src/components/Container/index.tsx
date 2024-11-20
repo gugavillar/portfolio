@@ -1,5 +1,7 @@
 import { ComponentProps, ReactNode } from 'react'
 
+import { twMerge } from 'tailwind-merge'
+
 type ContainerProps<T> = ComponentProps<'section'> & {
   children: ReactNode
   sliceType: T
@@ -15,7 +17,10 @@ export const Container = <T,>({
 }: ContainerProps<T>) => {
   return (
     <section
-      className={`flex w-full flex-col px-6 md:px-11 lg:px-[180px] ${className}`}
+      className={twMerge(
+        'flex w-full flex-col px-6 md:px-11 lg:px-[11.25rem]',
+        className,
+      )}
       data-slice-type={sliceType}
       data-slice-variation={variation}
       {...props}

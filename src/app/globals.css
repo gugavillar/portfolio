@@ -4,9 +4,9 @@
 
 @layer components {
   .btn-purple {
-    @apply flex w-[144px] md:w-[160px] h-[40px] md:h-[45px] items-center justify-center gap-4 border-2 text-sm font-semibold text-white [border-image:linear-gradient(to_top_right,#9358f7,#10d7e2)_1]
+    @apply flex h-[2.5rem] w-[9rem] items-center justify-center gap-4 border-2 text-sm font-semibold text-white [border-image:linear-gradient(to_top_right,#9358f7,#10d7e2)_1] md:h-[2.8125rem] md:w-[10rem];
   }
   .btn-pink {
-    @apply flex w-[144px] md:w-[160px] h-[40px] md:h-[45px] items-center justify-center gap-4 border-2 text-sm font-semibold text-white [border-image:linear-gradient(to_bottom_right,#d24074,#6518b4)_1]
+    @apply flex h-[2.5rem] w-[9rem] items-center justify-center gap-4 border-2 text-sm font-semibold text-white [border-image:linear-gradient(to_bottom_right,#d24074,#6518b4)_1] md:h-[2.8125rem] md:w-[10rem];
   }
 }
