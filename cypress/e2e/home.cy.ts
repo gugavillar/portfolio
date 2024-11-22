@@ -57,7 +57,7 @@ describe('Portfolio tests', () => {
   })
 
   it('should change language', () => {
-    cy.get('div.flex > .flex > :nth-child(2) > a').click()
+    cy.get('.flex-col > div.flex > .flex > :nth-child(2) > a').click()
 
     cy.url().should('eq', 'http://localhost:3000/en-us')
   })
