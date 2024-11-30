@@ -21,7 +21,7 @@ export default async function HomePage({
 export async function generateMetadata({
   params,
 }: {
-  params: { lang: string }
+  params: Promise<{ lang: string }>
 }): Promise<Metadata> {
   const { lang } = await params
   const client = createClient()
