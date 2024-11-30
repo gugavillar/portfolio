@@ -44,6 +44,21 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "resume_link_label": {
+          "type": "Text",
+          "config": {
+            "label": "resume_link_label",
+            "placeholder": ""
+          }
+        },
+        "resume_link": {
+          "type": "Link",
+          "config": {
+            "label": "resume_link",
+            "placeholder": "",
+            "select": "media"
+          }
         }
       },
       "items": {}

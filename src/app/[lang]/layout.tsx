@@ -1,7 +1,6 @@
 import { Poppins, Inter } from 'next/font/google'
 
-import { createClient, repositoryName } from '@/prismicio'
-import { PrismicPreview } from '@prismicio/next'
+import { createClient } from '@/prismicio'
 
 import { Header, Footer } from '@/components'
 
@@ -22,28 +21,31 @@ const inter = Inter({
 
 export default async function RootLayout({
   children,
-  params: { lang },
+  params,
 }: {
   children: React.ReactNode
-  params: { lang: string }
+  params: Promise<{ lang: string }>
 }) {
+  const { lang } = await params
   const client = createClient()
-  const home = await client.getSingle('home')
-  const locales = await getLocales(home, client)
+  const [homeData, headerData] = await Promise.all([
+    client.getSingle('home'),
+    client.getSingle('headerlink', { lang }),
+  ])
+  const locales = await getLocales(homeData, client)
 
   return (
     <html
       lang='pt-BR'
       className={`${poppins.variable} ${inter.variable} scroll-pt-20 scroll-smooth`}
     >
-      <body className='h-dvh w-dvw flex flex-col bg-dark-900'>
+      <body className='flex h-dvh w-dvw flex-col bg-dark-900'>
         <section>
-          <Header params={{ lang }} locales={locales} />
+          <Header lang={lang} locales={locales} data={headerData.data} />
           <main className='flex flex-1 flex-col'>{children}</main>
           <Footer />
         </section>
       </body>
-      <PrismicPreview repositoryName={repositoryName} />
     </html>
   )
 }

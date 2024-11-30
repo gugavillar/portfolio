@@ -30,7 +30,10 @@ const About = ({ slice }: AboutProps): JSX.Element => {
             location={slice.primary.location}
             aboutMe={slice.primary.about_me}
           />
-          <ActionButtons />
+          <ActionButtons
+            resumeLink={slice.primary.resume_link}
+            labelButton={slice.primary.resume_link_label}
+          />
         </div>
       </div>
     </Container>

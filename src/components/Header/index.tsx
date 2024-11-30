@@ -1,22 +1,23 @@
-import { createClient } from '@/prismicio'
-
 import { getLocales } from '@/utils/getLocales'
 
 import { MenuLinks } from './MenuLinks'
 import { MenuWrapper } from './MenuWrapper'
 import { MobileDrawer } from './MobileDrawer'
+import {
+  type HeaderlinkDocumentData,
+  type Simplify,
+} from '../../../prismicio-types'
 import { LanguageSwitcher } from '../LanguageSwitch'
 
-export const Header = async ({
-  params: { lang },
+export const Header = ({
+  lang,
   locales,
+  data,
 }: {
-  params: { lang: string }
+  lang: string
   locales: Awaited<ReturnType<typeof getLocales>>
+  data: Simplify<HeaderlinkDocumentData>
 }) => {
-  const client = createClient()
-  const { data } = await client.getSingle('headerlink', { lang })
-
   return (
     <header className='sticky top-0 z-50 flex items-center bg-dark-900'>
       <div className='flex w-full items-center justify-between p-6 md:px-11 md:py-10 lg:px-[11.25rem]'>

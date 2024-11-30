@@ -218,6 +218,26 @@ export interface AboutSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>
+
+  /**
+   * resume_link_label field in *About → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.resume_link_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  resume_link_label: prismic.KeyTextField
+
+  /**
+   * resume_link field in *About → Default → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.resume_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  resume_link: prismic.LinkToMediaField
 }
 
 /**

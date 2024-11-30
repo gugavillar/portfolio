@@ -7,10 +7,11 @@ import { SliceZone } from '@prismicio/react'
 import { components } from '@/slices'
 
 export default async function HomePage({
-  params: { lang },
+  params,
 }: {
-  params: { lang: string }
+  params: Promise<{ lang: string }>
 }) {
+  const { lang } = await params
   const client = createClient()
   const page = await client.getSingle('home', { lang })
 
@@ -18,10 +19,11 @@ export default async function HomePage({
 }
 
 export async function generateMetadata({
-  params: { lang },
+  params,
 }: {
   params: { lang: string }
 }): Promise<Metadata> {
+  const { lang } = await params
   const client = createClient()
   const page = await client.getSingle('home', { lang })
 
