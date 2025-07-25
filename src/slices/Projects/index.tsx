@@ -1,3 +1,5 @@
+import { ReactElement } from 'react'
+
 import type { Content } from '@prismicio/client'
 import { type SliceComponentProps } from '@prismicio/react'
 
@@ -7,7 +9,7 @@ import { ProjectContent } from './ProjectContent'
 
 export type ProjectsProps = SliceComponentProps<Content.ProjectsSlice>
 
-const Projects = ({ slice }: ProjectsProps): JSX.Element => {
+const Projects = ({ slice }: ProjectsProps): ReactElement => {
   return (
     <Container
       sliceType={slice.slice_type}

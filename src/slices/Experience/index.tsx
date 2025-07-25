@@ -1,3 +1,5 @@
+import { ReactElement } from 'react'
+
 import type { Content } from '@prismicio/client'
 import { type SliceComponentProps } from '@prismicio/react'
 
@@ -7,7 +9,7 @@ import { ExperienceList } from './ExperienceList'
 
 export type ExperienceProps = SliceComponentProps<Content.ExperienceSlice>
 
-const Experience = ({ slice }: ExperienceProps): JSX.Element => {
+const Experience = ({ slice }: ExperienceProps): ReactElement => {
   return (
     <Container
       sliceType={slice.slice_type}

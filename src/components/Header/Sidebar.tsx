@@ -6,7 +6,7 @@ type SidebarProps = {
   toggle: () => void
   isOpen: boolean
   children: ReactNode
-  drawerRef?: RefObject<HTMLDivElement>
+  drawerRef: RefObject<HTMLDivElement | null>
 }
 
 export const Sidebar = ({

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactElement, ReactNode } from 'react'
 
 import type { Content } from '@prismicio/client'
 import {
@@ -30,7 +30,7 @@ const Paragraph = ({ children }: ParagraphProps) => (
   <p className='font-semibold text-white md:text-2xl'>{children}</p>
 )
 
-const InfoHeader = ({ slice }: InfoHeaderProps): JSX.Element => {
+const InfoHeader = ({ slice }: InfoHeaderProps): ReactElement => {
   return (
     <Container
       sliceType={slice.slice_type}

@@ -1,3 +1,5 @@
+import { ReactElement } from 'react'
+
 import type { Content } from '@prismicio/client'
 import { PrismicNextImage } from '@prismicio/next'
 import { type SliceComponentProps } from '@prismicio/react'
@@ -9,7 +11,7 @@ import { PersonalDescription } from './PersonalDescription'
 
 export type AboutProps = SliceComponentProps<Content.AboutSlice>
 
-const About = ({ slice }: AboutProps): JSX.Element => {
+const About = ({ slice }: AboutProps): ReactElement => {
   return (
     <Container
       className='mt-14 min-h-[22.625rem] bg-dark-700 py-10 lg:py-[6.25rem]'
