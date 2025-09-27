@@ -31,7 +31,7 @@ export const LanguageSwitcher = ({
           <li key={locale.lang}>
             <Link
               className={twMerge(
-                lang === locale.lang && 'font-bold text-brand',
+                lang === locale.lang && 'text-brand font-bold',
               )}
               href={locale.url}
               locale={locale.lang}
