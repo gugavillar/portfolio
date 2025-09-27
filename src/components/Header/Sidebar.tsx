@@ -18,13 +18,13 @@ export const Sidebar = ({
   return (
     <aside
       className={twMerge(
-        'fixed right-0 top-0 h-full w-1/2 bg-dark-900 px-8 pb-8 pt-12 duration-500 ease-in-out',
+        'bg-dark-900 fixed top-0 right-0 h-full w-1/2 px-8 pt-12 pb-8 duration-500 ease-in-out',
         isOpen ? 'translate-x-0' : 'translate-x-full',
       )}
       ref={drawerRef}
     >
       <button
-        className='fixed right-8 top-5 cursor-pointer items-center text-xl text-dark-400'
+        className='text-dark-400 fixed top-5 right-8 cursor-pointer items-center text-xl'
         onClick={toggle}
       >
         X

@@ -41,7 +41,7 @@ export const ExperienceList = ({ items }: ExperienceListProps) => {
               key={index}
               onClick={() => handleSelectedItem(item)}
               className={twMerge(
-                'flex h-10 min-w-[9.375rem] items-center justify-center whitespace-nowrap text-lg text-white transition-colors duration-500 ease-in-out md:h-14 md:w-48',
+                'flex h-10 min-w-[9.375rem] items-center justify-center text-lg whitespace-nowrap text-white transition-colors duration-500 ease-in-out md:h-14 md:w-48',
                 isSelected,
               )}
             >

@@ -9,7 +9,7 @@ const H3: JSXMapSerializer = {
 
 const Paragraph: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <p className='text-justify text-sm font-light text-dark-400 md:text-lg'>
+    <p className='text-dark-400 text-justify text-sm font-light md:text-lg'>
       {children}
     </p>
   ),

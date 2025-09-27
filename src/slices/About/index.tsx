@@ -14,7 +14,7 @@ export type AboutProps = SliceComponentProps<Content.AboutSlice>
 const About = ({ slice }: AboutProps): ReactElement => {
   return (
     <Container
-      className='mt-14 min-h-[22.625rem] bg-dark-700 py-10 lg:py-[6.25rem]'
+      className='bg-dark-700 mt-14 min-h-[22.625rem] py-10 lg:py-[6.25rem]'
       sliceType={slice.slice_type}
       variation={slice.variation}
       id='about'
@@ -23,7 +23,7 @@ const About = ({ slice }: AboutProps): ReactElement => {
         <PrismicNextImage
           loading='lazy'
           height={256}
-          className='hidden h-3/4 rounded border-l-4 border-brand lg:flex'
+          className='border-brand hidden h-3/4 rounded border-l-4 lg:flex'
           field={slice.primary.image}
         />
         <div>

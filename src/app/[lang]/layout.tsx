@@ -39,7 +39,7 @@ export default async function RootLayout({
       lang='pt-BR'
       className={`${poppins.variable} ${inter.variable} scroll-pt-20 scroll-smooth`}
     >
-      <body className='flex h-dvh w-dvw flex-col bg-dark-900'>
+      <body className='bg-dark-900 flex h-dvh w-dvw flex-col'>
         <section>
           <Header lang={lang} locales={locales} data={headerData.data} />
           <main className='flex flex-1 flex-col'>{children}</main>

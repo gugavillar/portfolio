@@ -16,7 +16,7 @@ export type InfoHeaderProps = SliceComponentProps<Content.InfoHeaderSlice>
 
 const H1: JSXMapSerializer = {
   heading1: ({ children }) => (
-    <h1 className='text-[2rem] font-semibold text-brand md:text-[4rem]'>
+    <h1 className='text-brand text-[2rem] font-semibold md:text-[4rem]'>
       {children}
     </h1>
   ),
@@ -42,7 +42,7 @@ const InfoHeader = ({ slice }: InfoHeaderProps): ReactElement => {
         <PrismicRichText components={H1} field={slice.primary.name} />
         <Paragraph>{slice.primary.role}</Paragraph>
       </div>
-      <Loop className='invisible absolute right-0 top-3 -z-20 lg:visible' />
+      <Loop className='invisible absolute top-3 right-0 -z-20 lg:visible' />
       <SocialButtons
         github={slice.primary.github_profile}
         linkedIn={slice.primary.linkedin_profile}

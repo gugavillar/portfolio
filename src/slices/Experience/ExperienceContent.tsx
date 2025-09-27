@@ -15,7 +15,7 @@ const H3: JSXMapSerializer = {
 
 const Paragraph: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <p className='text-justify text-sm font-light text-dark-400 md:text-lg'>
+    <p className='text-dark-400 text-justify text-sm font-light md:text-lg'>
       {children}
     </p>
   ),
@@ -37,7 +37,7 @@ export const ExperienceContent = ({ item }: ExperienceContentProps) => {
         />
       </div>
       <div className='flex items-center justify-between'>
-        <p className='text-sm font-medium text-brand md:text-base'>
+        <p className='text-brand text-sm font-medium md:text-base'>
           {item.company}
         </p>
         <ExperienceTime
