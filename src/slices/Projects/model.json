@@ -1,86 +1,86 @@
 {
-  "id": "projects",
-  "type": "SharedSlice",
-  "name": "Projects",
-  "description": "Projects",
-  "variations": [
-    {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
-      "primary": {
-        "title": {
-          "type": "Text",
-          "config": {
-            "label": "title",
-            "placeholder": ""
-          }
-        }
-      },
-      "items": {
-        "screenshot": {
-          "type": "Image",
-          "config": {
-            "label": "screenshot",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "name": {
-          "type": "StructuredText",
-          "config": {
-            "label": "name",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "heading3"
-          }
-        },
-        "description": {
-          "type": "StructuredText",
-          "config": {
-            "label": "description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
-          }
-        },
-        "technologies": {
-          "type": "StructuredText",
-          "config": {
-            "label": "technologies",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
-          }
-        },
-        "button_label": {
-          "type": "Text",
-          "config": {
-            "label": "button_label",
-            "placeholder": ""
-          }
-        },
-        "link": {
-          "type": "Link",
-          "config": {
-            "label": "link",
-            "placeholder": "",
-            "allowTargetBlank": false,
-            "select": null
-          }
-        },
-        "github": {
-          "type": "Link",
-          "config": {
-            "label": "github",
-            "placeholder": "",
-            "select": null
-          }
-        }
-      }
-    }
-  ]
+	"id": "projects",
+	"type": "SharedSlice",
+	"name": "Projects",
+	"description": "Projects",
+	"variations": [
+		{
+			"id": "default",
+			"name": "Default",
+			"docURL": "...",
+			"version": "initial",
+			"description": "Default",
+			"imageUrl": "",
+			"primary": {
+				"title": {
+					"type": "Text",
+					"config": {
+						"label": "title",
+						"placeholder": ""
+					}
+				}
+			},
+			"items": {
+				"screenshot": {
+					"type": "Image",
+					"config": {
+						"label": "screenshot",
+						"constraint": {},
+						"thumbnails": []
+					}
+				},
+				"name": {
+					"type": "StructuredText",
+					"config": {
+						"label": "name",
+						"placeholder": "",
+						"allowTargetBlank": true,
+						"single": "heading3"
+					}
+				},
+				"description": {
+					"type": "StructuredText",
+					"config": {
+						"label": "description",
+						"placeholder": "",
+						"allowTargetBlank": true,
+						"multi": "paragraph"
+					}
+				},
+				"technologies": {
+					"type": "StructuredText",
+					"config": {
+						"label": "technologies",
+						"placeholder": "",
+						"allowTargetBlank": true,
+						"multi": "paragraph"
+					}
+				},
+				"button_label": {
+					"type": "Text",
+					"config": {
+						"label": "button_label",
+						"placeholder": ""
+					}
+				},
+				"link": {
+					"type": "Link",
+					"config": {
+						"label": "link",
+						"placeholder": "",
+						"allowTargetBlank": false,
+						"select": null
+					}
+				},
+				"github": {
+					"type": "Link",
+					"config": {
+						"label": "github",
+						"placeholder": "",
+						"select": null
+					}
+				}
+			}
+		}
+	]
 }

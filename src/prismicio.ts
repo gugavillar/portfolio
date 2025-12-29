@@ -15,10 +15,10 @@ export const repositoryName = config.repositoryName
  */
 // TODO: Update the routes array to match your project's route structure.
 const routes: prismic.ClientConfig['routes'] = [
-  {
-    type: 'home',
-    path: '/:lang?',
-  },
+	{
+		path: '/:lang?',
+		type: 'home',
+	},
 ]
 
 /**
@@ -28,19 +28,19 @@ const routes: prismic.ClientConfig['routes'] = [
  * @param config - Configuration for the Prismic client.
  */
 export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
-  const client = prismic.createClient(repositoryName, {
-    routes,
-    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-    fetchOptions:
-      process.env.NODE_ENV === 'production'
-        ? { next: { tags: ['prismic'], revalidate: 10 }, cache: 'force-cache' }
-        : { next: { revalidate: 5 } },
-    ...config,
-  })
+	const client = prismic.createClient(repositoryName, {
+		accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+		fetchOptions:
+			process.env.NODE_ENV === 'production'
+				? { cache: 'force-cache', next: { revalidate: 10, tags: ['prismic'] } }
+				: { next: { revalidate: 5 } },
+		routes,
+		...config,
+	})
 
-  prismicNext.enableAutoPreviews({
-    client,
-  })
+	prismicNext.enableAutoPreviews({
+		client,
+	})
 
-  return client
+	return client
 }

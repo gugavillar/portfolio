@@ -1,67 +1,67 @@
 {
-  "id": "about",
-  "type": "SharedSlice",
-  "name": "About",
-  "description": "About",
-  "variations": [
-    {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
-      "primary": {
-        "title": {
-          "type": "Text",
-          "config": {
-            "label": "title",
-            "placeholder": ""
-          }
-        },
-        "location": {
-          "type": "StructuredText",
-          "config": {
-            "label": "location",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "heading3"
-          }
-        },
-        "about_me": {
-          "type": "StructuredText",
-          "config": {
-            "label": "about_me",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "paragraph"
-          }
-        },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "resume_link_label": {
-          "type": "Text",
-          "config": {
-            "label": "resume_link_label",
-            "placeholder": ""
-          }
-        },
-        "resume_link": {
-          "type": "Link",
-          "config": {
-            "label": "resume_link",
-            "placeholder": "",
-            "select": "media"
-          }
-        }
-      },
-      "items": {}
-    }
-  ]
+	"id": "about",
+	"type": "SharedSlice",
+	"name": "About",
+	"description": "About",
+	"variations": [
+		{
+			"id": "default",
+			"name": "Default",
+			"docURL": "...",
+			"version": "initial",
+			"description": "Default",
+			"imageUrl": "",
+			"primary": {
+				"title": {
+					"type": "Text",
+					"config": {
+						"label": "title",
+						"placeholder": ""
+					}
+				},
+				"location": {
+					"type": "StructuredText",
+					"config": {
+						"label": "location",
+						"placeholder": "",
+						"allowTargetBlank": true,
+						"single": "heading3"
+					}
+				},
+				"about_me": {
+					"type": "StructuredText",
+					"config": {
+						"label": "about_me",
+						"placeholder": "",
+						"allowTargetBlank": true,
+						"single": "paragraph"
+					}
+				},
+				"image": {
+					"type": "Image",
+					"config": {
+						"label": "image",
+						"constraint": {},
+						"thumbnails": []
+					}
+				},
+				"resume_link_label": {
+					"type": "Text",
+					"config": {
+						"label": "resume_link_label",
+						"placeholder": ""
+					}
+				},
+				"resume_link": {
+					"type": "Link",
+					"config": {
+						"label": "resume_link",
+						"placeholder": "",
+						"select": "media"
+					}
+				}
+			},
+			"items": {}
+		}
+	]
 }

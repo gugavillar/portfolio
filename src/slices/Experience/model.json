@@ -1,66 +1,66 @@
 {
-  "id": "experience",
-  "type": "SharedSlice",
-  "name": "Experience",
-  "description": "Experience",
-  "variations": [
-    {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
-      "primary": {
-        "title": {
-          "type": "Text",
-          "config": {
-            "label": "title",
-            "placeholder": ""
-          }
-        }
-      },
-      "items": {
-        "company": {
-          "type": "Text",
-          "config": {
-            "label": "company",
-            "placeholder": ""
-          }
-        },
-        "role": {
-          "type": "StructuredText",
-          "config": {
-            "label": "role",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "heading3"
-          }
-        },
-        "description": {
-          "type": "StructuredText",
-          "config": {
-            "label": "description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
-          }
-        },
-        "initial": {
-          "type": "Date",
-          "config": {
-            "label": "initial",
-            "placeholder": ""
-          }
-        },
-        "final": {
-          "type": "Date",
-          "config": {
-            "label": "final",
-            "placeholder": ""
-          }
-        }
-      }
-    }
-  ]
+	"id": "experience",
+	"type": "SharedSlice",
+	"name": "Experience",
+	"description": "Experience",
+	"variations": [
+		{
+			"id": "default",
+			"name": "Default",
+			"docURL": "...",
+			"version": "initial",
+			"description": "Default",
+			"imageUrl": "",
+			"primary": {
+				"title": {
+					"type": "Text",
+					"config": {
+						"label": "title",
+						"placeholder": ""
+					}
+				}
+			},
+			"items": {
+				"company": {
+					"type": "Text",
+					"config": {
+						"label": "company",
+						"placeholder": ""
+					}
+				},
+				"role": {
+					"type": "StructuredText",
+					"config": {
+						"label": "role",
+						"placeholder": "",
+						"allowTargetBlank": true,
+						"single": "heading3"
+					}
+				},
+				"description": {
+					"type": "StructuredText",
+					"config": {
+						"label": "description",
+						"placeholder": "",
+						"allowTargetBlank": true,
+						"multi": "paragraph"
+					}
+				},
+				"initial": {
+					"type": "Date",
+					"config": {
+						"label": "initial",
+						"placeholder": ""
+					}
+				},
+				"final": {
+					"type": "Date",
+					"config": {
+						"label": "final",
+						"placeholder": ""
+					}
+				}
+			}
+		}
+	]
 }

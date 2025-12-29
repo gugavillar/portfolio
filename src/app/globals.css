@@ -1,19 +1,19 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @layer components {
-  .btn-purple {
-    @apply flex h-[2.5rem] w-[9rem] items-center justify-center gap-4 border-2 text-sm font-semibold text-white [border-image:linear-gradient(to_top_right,#9358f7,#10d7e2)_1] md:h-[2.8125rem] md:w-[10rem];
-  }
-  .btn-pink {
-    @apply flex h-[2.5rem] w-[9rem] items-center justify-center gap-4 border-2 text-sm font-semibold text-white [border-image:linear-gradient(to_bottom_right,#d24074,#6518b4)_1] md:h-[2.8125rem] md:w-[10rem];
-  }
+	.btn-purple {
+		@apply flex h-10 w-36 items-center justify-center gap-4 border-2 text-sm font-semibold text-white [border-image:linear-gradient(to_top_right,#9358f7,#10d7e2)_1] md:h-11.25 md:w-40;
+	}
+	.btn-pink {
+		@apply flex h-10 w-36 items-center justify-center gap-4 border-2 text-sm font-semibold text-white [border-image:linear-gradient(to_bottom_right,#d24074,#6518b4)_1] md:h-11.25 md:w-40;
+	}
 }
 
 @theme {
-  --color-brand: #00d2df;
-  --color-dark-400: #c4c4c4;
-  --color-dark-600: #2e2e2e;
-  --color-dark-700: #151515;
-  --color-dark-900: #121212;
-  --font-sans: var(--font-inter), sans-serif;
+	--color-brand: #00d2df;
+	--color-dark-400: #c4c4c4;
+	--color-dark-600: #2e2e2e;
+	--color-dark-700: #151515;
+	--color-dark-900: #121212;
+	--font-sans: var(--font-inter), sans-serif;
 }

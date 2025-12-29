@@ -1,60 +1,60 @@
 {
-  "id": "info_header",
-  "type": "SharedSlice",
-  "name": "InfoHeader",
-  "description": "InfoHeader",
-  "variations": [
-    {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
-      "primary": {
-        "title": {
-          "type": "Text",
-          "config": {
-            "label": "title",
-            "placeholder": ""
-          }
-        },
-        "role": {
-          "type": "Text",
-          "config": {
-            "label": "role",
-            "placeholder": ""
-          }
-        },
-        "name": {
-          "type": "StructuredText",
-          "config": {
-            "label": "name",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "heading1"
-          }
-        },
-        "github_profile": {
-          "type": "Link",
-          "config": {
-            "label": "github_profile",
-            "placeholder": "https://github.com/username",
-            "allowTargetBlank": true,
-            "select": null
-          }
-        },
-        "linkedin_profile": {
-          "type": "Link",
-          "config": {
-            "label": "linkedin_profile",
-            "placeholder": "https://linkedin.com/in/username",
-            "allowTargetBlank": true,
-            "select": null
-          }
-        }
-      },
-      "items": {}
-    }
-  ]
+	"id": "info_header",
+	"type": "SharedSlice",
+	"name": "InfoHeader",
+	"description": "InfoHeader",
+	"variations": [
+		{
+			"id": "default",
+			"name": "Default",
+			"docURL": "...",
+			"version": "initial",
+			"description": "Default",
+			"imageUrl": "",
+			"primary": {
+				"title": {
+					"type": "Text",
+					"config": {
+						"label": "title",
+						"placeholder": ""
+					}
+				},
+				"role": {
+					"type": "Text",
+					"config": {
+						"label": "role",
+						"placeholder": ""
+					}
+				},
+				"name": {
+					"type": "StructuredText",
+					"config": {
+						"label": "name",
+						"placeholder": "",
+						"allowTargetBlank": true,
+						"single": "heading1"
+					}
+				},
+				"github_profile": {
+					"type": "Link",
+					"config": {
+						"label": "github_profile",
+						"placeholder": "https://github.com/username",
+						"allowTargetBlank": true,
+						"select": null
+					}
+				},
+				"linkedin_profile": {
+					"type": "Link",
+					"config": {
+						"label": "linkedin_profile",
+						"placeholder": "https://linkedin.com/in/username",
+						"allowTargetBlank": true,
+						"select": null
+					}
+				}
+			},
+			"items": {}
+		}
+	]
 }

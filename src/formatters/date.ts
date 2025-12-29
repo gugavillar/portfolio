@@ -1,37 +1,28 @@
-import { type DateField } from '@prismicio/client'
-
-import { parse, format } from 'date-fns'
+import type { DateField } from '@prismicio/client'
+import { format, parse } from 'date-fns'
 import * as locale from 'date-fns/locale'
 
 const locales = {
-  BR: locale.ptBR,
-  US: locale.enUS,
+	BR: locale.ptBR,
+	US: locale.enUS,
 }
 
-const getNumberDate = (
-  date: string,
-  locale = 'BR',
-  formatString = 'yyyy-MM-dd',
-) => {
-  if (!date) return NaN
+const getNumberDate = (date: string, locale = 'BR', formatString = 'yyyy-MM-dd') => {
+	if (!date) return NaN
 
-  return parse(date, formatString, new Date(), {
-    locale: locales[locale as keyof typeof locales],
-  }).getTime()
+	return parse(date, formatString, new Date(), {
+		locale: locales[locale as keyof typeof locales],
+	}).getTime()
 }
 
-export const formatDate = (
-  date: DateField,
-  locale = 'BR',
-  formatString = 'MMM yyyy',
-) => {
-  if (!date) return ''
+export const formatDate = (date: DateField, locale = 'BR', formatString = 'MMM yyyy') => {
+	if (!date) return ''
 
-  const dateFormatted = getNumberDate(date)
+	const dateFormatted = getNumberDate(date)
 
-  if (isNaN(dateFormatted)) return ''
+	if (isNaN(dateFormatted)) return ''
 
-  return format(new Date(dateFormatted), formatString, {
-    locale: locales[locale as keyof typeof locales],
-  })
+	return format(new Date(dateFormatted), formatString, {
+		locale: locales[locale as keyof typeof locales],
+	})
 }
