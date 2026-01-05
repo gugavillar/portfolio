@@ -13,7 +13,7 @@
 		"cypress:open": "cypress open"
 	},
 	"dependencies": {
-		"@prismicio/client": "^7.21.1",
+		"@prismicio/client": "^7.21.2",
 		"@prismicio/next": "^2.0.2",
 		"@prismicio/react": "^3.2.2",
 		"autoprefixer": "10.4.23",
@@ -27,7 +27,7 @@
 		"tailwindcss": "4.1.18"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.10",
+		"@biomejs/biome": "2.3.11",
 		"@rocketseat/eslint-config": "^2.2.2",
 		"@slicemachine/adapter-next": "^0.3.92",
 		"@tailwindcss/postcss": "^4.1.18",
@@ -45,7 +45,9 @@
 		"typescript": "5.9.3"
 	},
 	"lint-staged": {
-		"*.{ts,tsx,js,jsx}": ["biome check --staged --no-errors-on-unmatched"]
+		"*.{ts,tsx,js,jsx}": [
+			"biome check --staged --no-errors-on-unmatched"
+		]
 	},
 	"packageManager": "pnpm@10.14.0"
 }
