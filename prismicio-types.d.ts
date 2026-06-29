@@ -558,17 +558,17 @@ type ProjectsSliceVariation = ProjectsSliceDefault
 export type ProjectsSlice = prismic.SharedSlice<'projects', ProjectsSliceVariation>
 
 declare module '@prismicio/client' {
-	interface CreateClient {
-		(repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>
-	}
+	type CreateClient = (
+		repositoryNameOrEndpoint: string,
+		options?: prismic.ClientConfig
+	) => prismic.Client<AllDocumentTypes>
 
-	interface CreateWriteClient {
-		(repositoryNameOrEndpoint: string, options: prismic.WriteClientConfig): prismic.WriteClient<AllDocumentTypes>
-	}
+	type CreateWriteClient = (
+		repositoryNameOrEndpoint: string,
+		options: prismic.WriteClientConfig
+	) => prismic.WriteClient<AllDocumentTypes>
 
-	interface CreateMigration {
-		(): prismic.Migration<AllDocumentTypes>
-	}
+	type CreateMigration = () => prismic.Migration<AllDocumentTypes>
 
 	namespace Content {
 		export type {

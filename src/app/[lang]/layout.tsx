@@ -7,6 +7,8 @@ import '../globals.css'
 
 import { getLocales } from '@/utils/getLocales'
 
+import type { AllDocumentTypes } from '../../../prismicio-types'
+
 const poppins = Poppins({
 	subsets: ['latin'],
 	variable: '--font-poppins',
@@ -28,7 +30,10 @@ export default async function RootLayout({
 }) {
 	const { lang } = await params
 	const client = createClient()
-	const [homeData, headerData] = await Promise.all([client.getSingle('home'), client.getSingle('headerlink', { lang })])
+	const [homeData, headerData] = await Promise.all([
+		client.getSingle('home') as Promise<AllDocumentTypes>,
+		client.getSingle('headerlink', { lang }) as Promise<Record<string, any>>,
+	])
 	const locales = await getLocales(homeData, client)
 
 	return (

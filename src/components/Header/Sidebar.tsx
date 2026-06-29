@@ -17,7 +17,11 @@ export const Sidebar = ({ toggle, isOpen, children, drawerRef }: SidebarProps) =
 			)}
 			ref={drawerRef}
 		>
-			<button className="text-dark-400 fixed top-5 right-8 cursor-pointer items-center text-xl" onClick={toggle}>
+			<button
+				className="text-dark-400 fixed top-5 right-8 cursor-pointer items-center text-xl"
+				onClick={toggle}
+				type="button"
+			>
 				X
 			</button>
 			{children}

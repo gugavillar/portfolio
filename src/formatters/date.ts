@@ -20,7 +20,7 @@ export const formatDate = (date: DateField, locale = 'BR', formatString = 'MMM y
 
 	const dateFormatted = getNumberDate(date)
 
-	if (isNaN(dateFormatted)) return ''
+	if (Number.isNaN(dateFormatted)) return ''
 
 	return format(new Date(dateFormatted), formatString, {
 		locale: locales[locale as keyof typeof locales],

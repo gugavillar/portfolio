@@ -16,7 +16,7 @@ export const ActionButtons = ({ resumeLink, labelButton }: ActionButtonsProps) =
 				<Download />
 				{labelButton}
 			</PrismicNextLink>
-			<a className="btn-purple" data-cy="email" href="mailto:grsv.21@gmail.com" target="_blank">
+			<a className="btn-purple" data-cy="email" href="mailto:grsv.21@gmail.com" rel="noopener" target="_blank">
 				<Mail />
 				E-mail
 			</a>

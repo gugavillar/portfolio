@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.4.13/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.5.1/schema.json",
 	"assist": {
 		"actions": {
 			"source": {
@@ -60,11 +60,18 @@
 		},
 		"enabled": true,
 		"rules": {
+			"a11y": {
+				"useKeyWithClickEvents": "off"
+			},
 			"correctness": {
 				"useExhaustiveDependencies": "off"
 			},
-			"recommended": false,
-			"style": { "useBlockStatements": "off", "useImportType": "on" }
+			"preset": "recommended",
+			"style": { "useBlockStatements": "off", "useImportType": "on" },
+			"suspicious": {
+				"noArrayIndexKey": "off",
+				"noExplicitAny": "off"
+			}
 		}
 	},
 	"vcs": { "clientKind": "git", "enabled": true, "useIgnoreFile": true }
